@@ -11,7 +11,7 @@ $(document).ready(function () {
       url: '/admin',
       data: email
     }).done(() => {
-      console.log('Added to database');
+      console.log('Login-form ajax call completed');
     });
   });
 });
