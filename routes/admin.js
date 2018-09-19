@@ -13,8 +13,19 @@ module.exports = (knex) => {
   });
 
   // Post admin data to databas
-  router.post('/:id', (req, res) => {
+  router.post('/', (req, res) => {
+    const email = req.body.email;
 
+    knex
+      .select("*")
+      .from("users")
+      .where('email', email)
+      .then((results) => {
+        console.log(results);
+        // If user doesnt exist, add user
+        // Else, skip
+        res.json(results);
+    });
   });
 
   return router;
