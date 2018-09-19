@@ -39,6 +39,8 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
+app.use('/poll', pollRoutes(knex));
+app.use('/admin', adminRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
