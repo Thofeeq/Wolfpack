@@ -1,15 +1,9 @@
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.email).appendTo($("body"));
-    }
-  });;
+$(document).ready(function () {
+  $(".features-box").hide();
+  $(".features-box").slideToggle(1000).show();
 
   // ajax call to add user to database
-  $('#email').on('submit', function(e) {
+  $('#login-form').on('submit', function(e) {
     e.preventDefault();
     const email = $(this).serialize();
     $.ajax({
@@ -21,3 +15,4 @@ $(() => {
     });
   });
 });
+

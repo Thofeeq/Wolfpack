@@ -1,7 +1,120 @@
-body {
-  background-color: #EEE;
+$app-font: 'Nunito Sans', sans-serif;
+$logo-font: 'Poor Story', cursive;
+$primary-color: rgb(14, 35, 128);
+$login-right-bg: white;
 
-  h1 {
-    color: #244751;
+  .container-custom{
+    margin: 0;
+    display: flex;
+    width:100%;
+    height:100vh;
+    flex-direction: row;
+
+    .left-index {
+      display:flex;
+      width:50%;
+      background-color:$primary-color;
+      height:100%;
+      justify-content:center;
+      align-items:flex-start;  
+    
+      #logo {
+        margin-top:12px;
+        margin-left:12px;
+      }
+      .features-box{
+        display: flex;
+        width:600px;
+        height:200px;
+        flex-direction: column;
+        align-self: center;
+        justify-content: space-between;
+        
+        img{
+          width:64px;
+          height: 64px;
+        }
+
+        p {
+          font-size: 26px;
+          color:white;
+          font-weight: bold;
+          align-self:baseline;
+        }
+        
+
+        .f-create-poll{
+          display: flex;
+          width:100%;
+          height:50%;
+          justify-content: space-between;
+
+          img {
+            margin-top:10px;
+          }
+        }
+
+        .f-invite-friends{
+          display: flex;
+          width:100%;
+          height:50%;
+          justify-content: space-between;
+
+          img {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    .right-index{
+      display:flex;
+      width:50%;
+      background-color: white;
+      height:100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color:$primary-color;
+
+      #logo-name{
+        font-family: $logo-font;
+        font-size:40px;
+      }
+
+      #login-form{
+        display: flex;
+        flex-direction: column; 
+        width:30%;
+        justify-content: space-between;
+        height:125px;
+        border: 1px solid rgba(14, 35, 128,0.2);
+        border-radius:5px;
+        padding:5px;
+        
+
+        #email{
+          height:25px;
+          border-radius: 10px;
+        }
+
+        button{
+          width: 50%;
+          align-self: center;
+          border-radius: 10px;
+        }
+        #btn-register{
+          color:white;
+          background:$primary-color;
+          height:50px;
+        }
+      }
+    }
+
+
   }
+
+
+.hidden{
+  display: none;
 }
