@@ -8,7 +8,7 @@ $(() => {
     }
   });;
 
-  // REMOVE BEFORE MERGING ONLY TEST
+  // ajax call to add user to database
   $('#email').on('submit', function(e) {
     e.preventDefault();
     const email = $(this).serialize();
