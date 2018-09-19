@@ -15,16 +15,24 @@ module.exports = (knex) => {
   // Post admin data to databas
   router.post('/', (req, res) => {
     const email = req.body.email;
-
     knex
       .select("*")
       .from("users")
       .where('email', email)
       .then((results) => {
-        console.log(results);
         // If user doesnt exist, add user
-        // Else, skip
-        res.json(results);
+        if (results.length === 0) {
+          knex
+            .insert({email: email})
+            .into('users')
+            .then(() => {
+              console.log('User added')
+            });
+        } else {
+          // Else, skip
+          console.log('User already exists, not adding to db');
+        }
+
     });
   });
 

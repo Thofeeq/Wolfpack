@@ -7,4 +7,17 @@ $(() => {
       $("<div>").text(user.email).appendTo($("body"));
     }
   });;
+
+  // REMOVE BEFORE MERGING ONLY TEST
+  $('#email').on('submit', function(e) {
+    e.preventDefault();
+    const email = $(this).serialize();
+    $.ajax({
+      method: 'POST',
+      url: '/admin',
+      data: email
+    }).done(() => {
+      console.log('Added to database');
+    });
+  });
 });
