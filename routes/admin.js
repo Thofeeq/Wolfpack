@@ -19,15 +19,21 @@ module.exports = (knex) => {
       .select("*")
       .from("users")
       .where('email', email)
-      .then((results) => {
+      .asCallback((err, result) => {
+        if (err) {
+          return console.log(err);
+        }
         // If user doesnt exist, add user
-        if (results.length === 0) {
+        if (result.length === 0) {
           knex
             .insert({email: email})
             .into('users')
-            .then(() => {
-              console.log('User added')
-            });
+            .asCallback((err, result) => {
+              if (err) {
+                return console.log(err);
+              }
+              console.log('User added');
+            })
         } else {
           // Else, skip
           console.log('User already exists, not adding to db');
