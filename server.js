@@ -50,7 +50,14 @@ app.get("/", (req, res) => {
 
 //test route - Thofeeq
 app.get("/create-poll", (req, res) => {
+  
   res.render("create-poll");
+});
+
+//test route
+app.get("/test_input", (req, res) => {
+  
+  res.render("test_input");
 });
 
 app.listen(PORT, () => {
