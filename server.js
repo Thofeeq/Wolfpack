@@ -48,6 +48,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+//test route - Thofeeq
+app.get("/create-poll", (req, res) => {
+  res.render("create-poll");
+});
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
