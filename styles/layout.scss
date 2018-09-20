@@ -1,4 +1,4 @@
-$app-font: 'Nunito Sans', sans-serif;
+$app-font: 'Nunito', sans-serif;
 $logo-font: 'Poor Story', cursive;
 $primary-color: rgb(14, 35, 128);
 $login-right-bg: white;
@@ -117,4 +117,55 @@ $login-right-bg: white;
 
 .hidden{
   display: none;
+}
+
+.nav-bar-custom{
+
+  width:100%;
+  color:white;
+  background-color: $primary-color;
+  font-family: $logo-font;
+  font-size:40px;
+  height:180px;
+}
+
+.remove-margin{
+  margin:0!important;
+}
+
+.poll-area{
+  font-family: $app-font;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width:100%;
+
+  p{
+    font-size: 30px;
+    margin-top:20px;
+    text-align: center;
+  }
+  textarea{
+
+    white-space: normal;
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
+    font-size:25px;
+    width:900px;
+    border-radius: 10px;
+   resize: none;
+   height:50px;
+  }
+  #btn-next{
+    display: flex;
+    margin:auto;
+  }
+
+  
+}
+
+.debug{
+  border: 3px red solid;
 }

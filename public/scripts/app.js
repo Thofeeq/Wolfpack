@@ -1,9 +1,10 @@
 
-
 $(document).ready(function () {
+  $("#date").flatpickr({enableTime:true});
   $(".features-box").hide();
   $(".features-box").slideToggle(1000).show();
   $("#date").flatpickr({enableTime:true});
+ 
   // ajax call to add user to database
   $('#login-form').on('submit', function(e) {
     e.preventDefault();
@@ -15,6 +16,19 @@ $(document).ready(function () {
     }).done(() => {
       console.log('Login-form ajax call completed');
     });
+
   });
+
+
+
+  // Set vote items to sortable
+  $('#sortable').sortable();
+  $('#sortable').disableSelection();
+
+  // Vote form submit
+  $('#vote-form').on('submit', function(e) {
+
+  });
+
 });
 
