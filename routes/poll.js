@@ -13,7 +13,6 @@ module.exports = (knex) => {
 
   // Post new poll data to database
   router.post('/new', (req, res) => {
-    console.log(req.body);
     const id = generateRandomString();
     const voteURL = urlGenerate.generateCombination(2, '', true);
     console.log(voteURL);
@@ -27,7 +26,6 @@ module.exports = (knex) => {
         choices[i] = req.body[i];
       }
     }
-    console.log(choices);
 
     knex('polls')
       .insert({
