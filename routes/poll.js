@@ -7,25 +7,37 @@ module.exports = (knex) => {
 
   // Get poll page to vote
   router.get('/:id', (req, res) => {
-    const id = req.params.id;
-    console.log(`Requesting "poll/${id}"`);
-    res.redirect('/');
-  });
 
-  // Get poll builder page
-  router.get('/new', (req, res) => {
-    res.render("temp-poll-builder");
   });
 
   // Post new poll data to database
   router.post('/new', (req, res) => {
-
-  });
-
-  // Post poll vote data to database
-  router.post('/:id/vote', (req, res) => {
-
+    console.log(req.body);
+    const email = req.body.email;
+    const title = req.body.poll-title;
+    const date = req.body.date;
+    let choices = [];
+    res.sendStatus(200);
   });
 
   return router;
+}
+
+function generateRandomString() {
+  let newString = '';
+  const strLength = 12;
+  const characters = [
+    { min: 48, max: 57 },
+    { min: 65, max: 90 },
+    { min: 97, max: 122 }
+  ];
+
+  for (let i = 0; i < strLength; i++) {
+    const randomIndex = Math.floor(Math.random() * Math.floor(3));
+    const min = characters[randomIndex].min;
+    const max = characters[randomIndex].max;
+    const code = Math.floor(Math.random() * (max - min + 1)) + min;
+    newString += String.fromCharCode(code);
+  }
+  return newString;
 }
