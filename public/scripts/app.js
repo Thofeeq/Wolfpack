@@ -16,6 +16,15 @@ $(document).ready(function () {
     }).done(() => {
       console.log('Login-form ajax call completed');
     });
+
+
+  // Set vote items to sortable
+  $('#sortable').sortable();
+  $('#sortable').disableSelection();
+
+  // Vote form submit
+  $('#vote-form').on('submit', function(e) {
+
   });
 });
 
