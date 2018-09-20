@@ -8,7 +8,6 @@ module.exports = (knex) => {
   // Get admin dashboard page
   router.get('/:id', (req, res) => {
     const id = req.params.id;
-    console.log(`Requesting "admin/${id}"`);
     knex
       .select('*')
       .from('users')
@@ -17,8 +16,12 @@ module.exports = (knex) => {
         if (err) {
           return console.log(err);
         }
-        res.redirect('/');
-      })
+        if(result.length === 0) {
+          res.redirect('/');
+        } else {
+          res.sendStatus(200);
+        }
+      });
   });
 
   // Post admin data to databas
@@ -47,6 +50,7 @@ module.exports = (knex) => {
             })
         } else {
           // Else, skip
+
           console.log('User already exists, not adding to db');
         }
         res.render('temp-poll-builder');
