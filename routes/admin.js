@@ -17,7 +17,6 @@ module.exports = (knex) => {
         if (err) {
           return console.log(err);
         }
-        console.log(result[0].email);
         res.redirect('/');
       })
   });
