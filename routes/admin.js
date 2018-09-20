@@ -47,7 +47,7 @@ module.exports = (knex) => {
           // Else, skip
           console.log('User already exists, not adding to db');
         }
-        res.redirect('/');
+        res.render('temp-poll-builder');
     });
   });
 

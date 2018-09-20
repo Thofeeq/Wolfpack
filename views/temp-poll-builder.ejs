@@ -12,6 +12,11 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
   <body class = "container-custom">
-
+    <form id="poll-builder" action="/poll/new" method="POST">
+    <textarea id="question-box" name="text" placeholder="What Polls You?"></textarea>
+    <textarea id="duration-box" name="text" placeholder="expiry date"></textarea>
+    <textarea id="first-option" name="text" placeholder="first option"></textarea>
+    <textarea id="second-option" name="text" placeholder="second option"></textarea>
+    </form>
   </body>
 </html>

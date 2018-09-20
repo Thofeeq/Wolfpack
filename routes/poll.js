@@ -14,7 +14,7 @@ module.exports = (knex) => {
 
   // Get poll builder page
   router.get('/new', (req, res) => {
-
+    res.render("temp-poll-builder");
   });
 
   // Post new poll data to database
