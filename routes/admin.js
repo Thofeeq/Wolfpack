@@ -9,15 +9,24 @@ module.exports = (knex) => {
   router.get('/:id', (req, res) => {
     const id = req.params.id;
     console.log(`Requesting "admin/${id}"`);
-    res.redirect('/');
+    knex
+      .select('*')
+      .from('users')
+      .where('user_id', id)
+      .asCallback((err, result) => {
+        if (err) {
+          return console.log(err);
+        }
+        res.redirect('/');
+      })
   });
 
   // Post admin data to databas
   router.post('/', (req, res) => {
     const email = req.body.email;
     knex
-      .select("*")
-      .from("users")
+      .select('*')
+      .from('users')
       .where('email', email)
       .asCallback((err, result) => {
         if (err) {
