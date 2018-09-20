@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    
+
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
   <body class = "container-custom">
         <div class = "left-index">
-    
+
             <div class = "features-box">
                 <div class ="f-create-poll">
                     <img src="/images/ballot1.png" alt="">
@@ -24,19 +24,18 @@
                   <img src="/images/social-media.png" alt="">
                   <p>Invite your friends to participate</p>
                 </div>
-        
+
             </div>
-        
+
           </div>
-        
+
           <div class = "right-index">
             <img src="/images/logo.png" id ="logo-1" alt="">
               <p id="logo-name">WOLFPACK</p>
-            <form id ="login-form">
+            <form id ="login-form" method="POST" action="/admin/newpoll">
               <label for="email">E-mail:</label>
               <input name = "email" id = "email" type = "email" cols= "30" rows= "2"/>
               <button id = "btn-register">Create a Poll!</button>
-            </form>
             </form>
           </div>
     </body>

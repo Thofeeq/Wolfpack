@@ -1,4 +1,3 @@
-
 exports.up = function(knex, Promise) {
     return knex.schema.createTable("polls", function (table) {
         table.increments("poll_id");
@@ -7,7 +6,7 @@ exports.up = function(knex, Promise) {
         table.date("date_expired");
         table.string("poll_name",255);
         table.jsonb("poll_options");
-        table.integer("user_id").references("user_id").inTable("users");
+        table.string("user_id").references("user_id").inTable("users");
     });
 };
 
