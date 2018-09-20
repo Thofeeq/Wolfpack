@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 482e1c4a023f7f6bc1010f9816b8eba378c29ea3
 
 
 $(document).ready(function () {
@@ -26,5 +30,9 @@ $(document).ready(function () {
   $('#vote-form').on('submit', function(e) {
 
   });
+<<<<<<< HEAD
+=======
+>>>>>>> f2f54118eb7ab39cd4c1e998241cec76aee80049
+>>>>>>> 482e1c4a023f7f6bc1010f9816b8eba378c29ea3
 });
 
