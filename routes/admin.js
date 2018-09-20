@@ -22,7 +22,9 @@ module.exports = (knex) => {
   });
 
   // Post admin data to databas
-  router.post('/', (req, res) => {
+  router.post('/newpoll', (req, res) => {
+    const id = generateRandomString();
+    console.log(id);
     const email = req.body.email;
     knex
       .select('*')
@@ -35,7 +37,7 @@ module.exports = (knex) => {
         // If user doesnt exist, add user
         if (result.length === 0) {
           knex
-            .insert({email: email})
+            .insert({user_id: id, email: email})
             .into('users')
             .asCallback((err, result) => {
               if (err) {
@@ -47,9 +49,28 @@ module.exports = (knex) => {
           // Else, skip
           console.log('User already exists, not adding to db');
         }
-        res.redirect('/');
+        res.render('temp-poll-builder');
     });
   });
 
   return router;
+}
+
+function generateRandomString() {
+  let newString = '';
+  const strLength = 12;
+  const characters = [
+    { min: 48, max: 57 },
+    { min: 65, max: 90 },
+    { min: 97, max: 122 }
+  ];
+
+  for (let i = 0; i < strLength; i++) {
+    const randomIndex = Math.floor(Math.random() * Math.floor(3));
+    const min = characters[randomIndex].min;
+    const max = characters[randomIndex].max;
+    const code = Math.floor(Math.random() * (max - min + 1)) + min;
+    newString += String.fromCharCode(code);
+  }
+  return newString;
 }
