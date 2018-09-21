@@ -68,7 +68,7 @@ $(document).ready(function () {
     let options = {
       email: email,
       pollTitle: question,
-      date: date
+      date: date,
     };
 
     let choices = [];

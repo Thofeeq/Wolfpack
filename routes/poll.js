@@ -3,6 +3,8 @@
 const express = require('express');
 const router  = express.Router();
 const urlGenerate = require('gfycat-style-urls');
+const moment = require('moment');
+moment().format();
 
 module.exports = (knex) => {
 
@@ -24,8 +26,9 @@ module.exports = (knex) => {
     console.log(voteURL);
     const email = req.body.email;
     const pollTitle = req.body['poll-title'];
-    const createdDate = new Date();
     const expiredDate = req.body.date;
+    console.log(moment(expiredDate));
+    //console.log(moment().isAfter(expiredDate));
     let choices = {};
     for (let i in req.body) {
       if (i.charAt(0) === 'c') {
