@@ -140,7 +140,22 @@ $login-right-bg: white;
   justify-content: flex-start;
   align-items: center;
   width:100%;
+  
+  
+  form{
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
+      #btn-add{
+        width:32px;
+        height:32px;
+        align-self: center;
+      }
+  }
+  
   p{
     font-size: 30px;
     margin-top:20px;
@@ -158,14 +173,43 @@ $login-right-bg: white;
    resize: none;
    height:50px;
   }
-  #btn-next{
+
+  .date-picker{
+    background-color: transparent;
+    border: 0px solid;
+    margin-top:10px;
+    width:17%;
+    align-self:center;
+    border-radius:10px;
+  }
+
+  .choices{
+    margin-top:5px;
+    margin-bottom:5px;
     display: flex;
-    margin:auto;
+    white-space: normal;
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
+    font-size:25px;
+    width:900px;
+    border-radius: 10px;
+   resize: none;
+   height:50px;
   }
 
   
 }
 
-.debug{
-  border: 3px red solid;
+.publish-area{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+// .debug{
+//   border: 3px red solid;
+// }
+
+.hidden{
+  display:hidden;
 }
