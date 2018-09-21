@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-  
+
   $("#poll-page-container").hide();
   $(".errors").hide();
   $(".features-box").hide();
@@ -8,10 +8,10 @@ $(document).ready(function () {
 
   $("#btn-register").click(function(){
     $("#login-page-container").hide(("slide", {direction: "right"}, 1000));
-    $("#poll-page-container").show();   
+    $("#poll-page-container").show();
    return false;
   });
-  
+
 
   $(".date-picker").flatpickr({enableTime:true});
   $(".date-picker").on("click",function(){
@@ -34,13 +34,13 @@ $(document).ready(function () {
       if(s.indexOf(' ') >= 0){
         var hasWhiteSpace =  true;
       }
-     
+
       if(s === "") {
         var emptyString = true;
       }
-  
+
       if(hasWhiteSpace || emptyString) {
-        emptyOuput = true; 
+        emptyOuput = true;
       }
       return emptyOuput;
     }
@@ -59,19 +59,19 @@ $(document).ready(function () {
     } else{
 
       $("#fieldEmptyError").hide();
-      
-      
+
+
       $("#option-container").append('<div class ="option-remove-wrapper">\
       <div class="input-group-text">option ' + getOptionPosition() + '</div>\
         <input type="text" id = "req-choice-1" class="choices" name="c1">\
         <input type="image" src="/images/remove.png" class ="btn-remove-custom" alt="remove">\
       </div>');
-        
+
 
     }
-   
+
   })
- 
+
 
   });
 
@@ -82,7 +82,23 @@ $(document).ready(function () {
   $('#submit-poll').on('submit', function(e) {
     e.preventDefault();
     console.log('poll submit clicked');
-    const data = $(this).serialize();
+    const email = $('#email').val();
+    const question = $('#pollName').val();
+    const date = $('.date-picker').val();
+    let options = {
+      email: email,
+      pollTitle: question,
+      date: date,
+    };
+
+    let choices = [];
+    $('.choices').each(function() {
+      choices.push($(this).val());
+    });
+    for (let i in choices) {
+      options[i] = choices[i];
+    }
+
     $.ajax({
       method: 'POST',
       url: '/poll/new',
