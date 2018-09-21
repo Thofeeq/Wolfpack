@@ -3,10 +3,8 @@ $(document).ready(function () {
   
   $("#poll-page-container").hide();
   $(".errors").hide();
-  // $("#date").flatpickr({enableTime:true});
   $(".features-box").hide();
   $(".features-box").slideToggle(1000).show();
-<<<<<<< HEAD
 
   $("#btn-register").click(function(){
     $("#login-page-container").hide(("slide", {direction: "right"}, 1000));
@@ -16,71 +14,70 @@ $(document).ready(function () {
   
 
   $(".date-picker").flatpickr({enableTime:true});
+  $(".date-picker").on("click",function(){
+
+    $(this).css("background-image","none");
+  });
+
+//q for mentor
+  $("body").on("click",".btn-remove-custom", function(e){
+    e.preventDefault();
+    $(this).parent().remove();
+  });
+
 
   $("#btn-add").click(function(e){
     e.preventDefault();
 
     function isStringEmpty(s) {
       var emptyOuput = false;
-      if(s.indexOf(' ') >= 0)
-      {
+      if(s.indexOf(' ') >= 0){
         var hasWhiteSpace =  true;
       }
      
-      if(s === ""){
+      if(s === "") {
         var emptyString = true;
       }
-      
-      if(hasWhiteSpace || emptyString)
-      {
+  
+      if(hasWhiteSpace || emptyString) {
         emptyOuput = true; 
       }
-
       return emptyOuput;
     }
-    
+    function getOptionPosition(){
+      let position = "";
+      let currentNumOfOptions = $("#option-container  input[type='text']").length + 1;
+      position = currentNumOfOptions;
+      return position;
+    }
     var requireChoice1 = $("#req-choice-1").val();
     var requireChoice2 = $("#req-choice-2").val();
 
     if(isStringEmpty(requireChoice1) || isStringEmpty(requireChoice2))
     {
-      $("#fieldEmptyError").show();
-     
-      
-    }
-    else{
+      $("#fieldEmptyError").slideDown(100);
+    } else{
+
       $("#fieldEmptyError").hide();
-      $("#option-container").append('<input type="text" class="choices"/>');
+      
+      
+      $("#option-container").append('<div class ="option-remove-wrapper">\
+      <div class="input-group-text">option ' + getOptionPosition() + '</div>\
+        <input type="text" id = "req-choice-1" class="choices" name="c1">\
+        <input type="image" src="/images/remove.png" class ="btn-remove-custom" alt="remove">\
+      </div>');
+        
+
     }
    
   })
  
-  // ajax call to add user to database
-  // $('#login-form').on('submit', function(e) {
-  //   e.preventDefault();
-  //   const email = $(this).serialize();
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: '/admin',
-  //     data: email
-  //   }).done(() => {
-  //     console.log('Login-form ajax call completed');
-  //   });
 
   });
 
 
 
-  // Set vote items to sortable
-  // $('#sortable').sortable();
-  // $('#sortable').disableSelection();
 
-  // // Vote form submit
-  // $('#vote-form').on('submit', function(e) {
-
-  // });
-=======
-  $("#date").flatpickr({enableTime:true});
 
   $('#submit-poll').on('submit', function(e) {
     e.preventDefault();
@@ -94,7 +91,5 @@ $(document).ready(function () {
       console.log('Login-form ajax call completed');
     });
   });
->>>>>>> 6f8e395c02b9daa09207acc8d3240356891329af
 
-// });
 
