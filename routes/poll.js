@@ -17,7 +17,6 @@ module.exports = (knex) => {
     .join("polls",{"polls.poll_id" : "votes.poll_id"})
     .where({'polls.vote_url' : urlToVote})
     .then((results) => {
-      console.log(results[0]);
       res.render("user-vote", results[0]);
     });
   });

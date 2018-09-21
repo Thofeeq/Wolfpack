@@ -9,42 +9,14 @@ $(document).ready(function () {
   $(".features-box").slideToggle(1000).show();
 
 
-  $("#login-form").validate({
-    rules: {
-      field: {
-        required: true,
-        email: true
-      }
-    }
-  });
 
   $("#btn-register").click(function(e){
     e.preventDefault();
-    console.log($("#email").val().length);
-    
-    if($("#email").val().length === 0)
-    {
-      console.log('oioi');
-      
-    }
-    else
-    {
-      $("#login-form").validate({
-    submitHandler: function(form){
-      $("#login-page-container").hide(("slide", {direction: "right"}, 1000));
-      $("#poll-page-container").show();
-    },
-    rules: {
-      field: {
-        required: true,
-        email: true
-      }
-    }
-  });      
+   
 
  
-    }
-
+    $("#login-page-container").hide(("slide", {direction: "right"}, 1000));
+    $("#poll-page-container").show();
 
     
    return false;
