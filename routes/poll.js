@@ -13,10 +13,10 @@ module.exports = (knex) => {
 
     const urlToVote = req.params.poll_url;
     knex.select("*")
-    .from("votes")
-    .join("polls",{"polls.poll_id" : "votes.poll_id"})
+    .from("polls")
     .where({'polls.vote_url' : urlToVote})
     .then((results) => {
+      console.log(results);
       console.log(results[0]);
       res.render("user-vote", results[0]);
     });
