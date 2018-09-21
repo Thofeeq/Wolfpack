@@ -62,12 +62,27 @@ $(document).ready(function () {
   $('#form-publish').on('submit', function(e) {
     e.preventDefault();
     console.log('poll submit clicked');
-    const data = $(this).serialize();
-    console.log(data)
+    const email = $('#email').val();
+    const question = $('#pollName').val();
+    const date = $('.date-picker').val();
+    let options = {
+      email: email,
+      pollTitle: question,
+      date: date
+    };
+    let choices = [];
+    $('.choices').each(function() {
+      choices.push($(this).val());
+    });
+    console.log(choices);
+    for (let i in choices) {
+      options[i] = choices[i];
+    }
+    console.log(options);
     $.ajax({
       method: 'POST',
       url: '/poll/new',
-      data: data
+      data: options,
     }).done(() => {
       console.log('Login-form ajax call completed');
     });
