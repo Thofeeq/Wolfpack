@@ -11,6 +11,11 @@ module.exports = (knex) => {
 
   });
 
+  // Post vote data to database
+  router.post('/:id/vote', (req, res) => {
+    const voterName = req.body.name;
+  });
+
   // Post new poll data to database
   router.post('/new', (req, res) => {
     const id = generateRandomString();
