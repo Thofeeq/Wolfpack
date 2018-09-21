@@ -78,6 +78,7 @@ $(document).ready(function () {
     const email = $('#email').val();
     const question = $('#pollName').val();
     const date = $('.date-picker').val();
+
     let options = {
       email: email,
       pollTitle: question,
@@ -96,8 +97,12 @@ $(document).ready(function () {
       method: 'POST',
       url: '/poll/new',
       data: options,
-    }).done(() => {
-      console.log('Login-form ajax call completed');
+    }).done((results) => {
+      console.log('Poll succesfully submitted.');
+      $('#form-publish').slideUp();
+      const shareURL = results.shareURL;
+      $('#share-url-span').text(shareURL);
+      console.log(shareURL);
     });
   });
 });

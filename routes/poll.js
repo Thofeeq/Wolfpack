@@ -39,7 +39,7 @@ module.exports = (knex) => {
       index++;
     }
 
-    /*knex('polls')
+    knex('polls')
       .insert({
         poll_id: id,
         vote_url: voteURL,
@@ -49,9 +49,11 @@ module.exports = (knex) => {
         poll_name: pollTitle,
         poll_options: choices,
       })
-      .then((results) => {
-        res.json(results);
-    });*/
+      .then(() => {
+        res.json({
+          shareURL: voteURL
+        });
+    });
   });
 
   return router;
