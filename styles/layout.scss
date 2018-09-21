@@ -3,6 +3,9 @@ $logo-font: 'Poor Story', cursive;
 $primary-color: rgb(14, 35, 128);
 $login-right-bg: white;
 
+.row {
+  width:100vw;
+}
 
 .input-group-text{
       
@@ -134,7 +137,7 @@ $login-right-bg: white;
   background-color: $primary-color;
   font-family: $logo-font;
   font-size:40px;
-  height:180px;
+  height:18vh;
 }
 
 
@@ -261,4 +264,34 @@ $login-right-bg: white;
 
 .hidden{
   display:hidden;
+}
+
+
+//Vote poll page
+
+#user-vote-poll-container{
+
+  
+  display:flex;
+  height: 80vh;
+  border: 1px red solid;
+  font-family: $app-font;
+  flex-direction: column;
+  align-items: center;
+  h1{
+    font-size: 45px;
+    font-weight: bold;
+    margin-top:20px;
+    text-align: center;
+  }
+  #sortable { 
+    display:flex; 
+    height:70%;
+    flex-direction:column;
+    list-style-type: none;
+     margin: 0;
+      padding: 0;
+      justify-content: space-around }
+  #sortable li { border: 1px red solid;text-align: center;width:898px; font-size:30px}
+ 
 }
