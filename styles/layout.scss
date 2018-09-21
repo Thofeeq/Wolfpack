@@ -265,15 +265,13 @@ $login-right-bg: white;
 .hidden{
   display:hidden;
 }
-<<<<<<< HEAD
-=======
 
 
 //Vote poll page
 
 #user-vote-poll-container{
 
-  
+
   display:flex;
   height: 80vh;
   border: 1px red solid;
@@ -286,8 +284,8 @@ $login-right-bg: white;
     margin-top:20px;
     text-align: center;
   }
-  #sortable { 
-    display:flex; 
+  #sortable {
+    display:flex;
     height:70%;
     flex-direction:column;
     list-style-type: none;
@@ -295,6 +293,5 @@ $login-right-bg: white;
       padding: 0;
       justify-content: space-around }
   #sortable li { border: 1px red solid;text-align: center;width:898px; font-size:30px}
- 
+
 }
->>>>>>> 3523800cb1e4f393bd3c3ec9bb1d7a940a4b047d
