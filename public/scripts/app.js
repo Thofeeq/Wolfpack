@@ -102,7 +102,7 @@ $(document).ready(function () {
     $.ajax({
       method: 'POST',
       url: '/poll/new',
-      data: data
+      data: options
     }).done(() => {
       console.log('Login-form ajax call completed');
     });
