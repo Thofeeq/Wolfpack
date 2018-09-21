@@ -10,7 +10,7 @@ module.exports = (knex) => {
 
   // Get poll page to vote
   router.get('/:poll_url', (req, res) => {
-    
+
     const urlToVote = req.params.poll_url;
     knex.select("*")
     .from("votes")
@@ -31,10 +31,11 @@ module.exports = (knex) => {
   // Post new poll data to database
   router.post('/new', (req, res) => {
     const id = generateRandomString();
+    console.log(req.body);
     const voteURL = urlGenerate.generateCombination(2, '', true);
     console.log(voteURL);
     const email = req.body.email;
-    const pollTitle = req.body['poll-title'];
+    const pollTitle = req.body.pollTitle;
     const createdDate = moment();
     const expiredDate = req.body.date;
     console.log(moment(expiredDate));
