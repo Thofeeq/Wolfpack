@@ -25,7 +25,8 @@ module.exports = (knex) => {
     const voteURL = urlGenerate.generateCombination(2, '', true);
     console.log(voteURL);
     const email = req.body.email;
-    const pollTitle = req.body['poll-title'];
+    const pollTitle = req.body.pollTitle;
+    const createdDate = moment();
     const expiredDate = req.body.date;
     console.log(moment(expiredDate));
     //console.log(moment().isAfter(expiredDate));
@@ -37,8 +38,20 @@ module.exports = (knex) => {
       }
       index++;
     }
+    const apiKey = '7a9a515596cd985458c64bb00f90635e-0e6e8cad-3d0a4f17';
+    const domain = 'sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org';
+    const mailgun = require('mailgun-js')({apiKey:apiKey, domain:domain});
+    const dataAdmin = {
+      from: 'WOLFPACK <postmaster@sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org>',
+      to:email,
+      subject: `WolfPack Poll Admin Link ${pollTitle}` ,
+      text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/polls/${voteURL}`
+    };
+    mailgun.messages().send(dataAdmin, function (error, body){
+      console.log(body);
+    });
 
-    /*knex('polls')
+    knex('polls')
       .insert({
         poll_id: id,
         vote_url: voteURL,
@@ -50,7 +63,8 @@ module.exports = (knex) => {
       })
       .then((results) => {
         res.json(results);
-    });*/
+    });
+  
   });
 
   return router;
