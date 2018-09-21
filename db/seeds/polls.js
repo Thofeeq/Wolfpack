@@ -18,7 +18,7 @@
             poll_options:{1:'The Grand Budapest Hotel', 2:'Skyfall', 3:'Isle of dogs'}}),
             knex('polls').insert({poll_id:"J9kn75hqbHdF",
             vote_url:"ParrotGuineaPig",
-            created_by:"dave@wolfpack.com",
+            created_by:"wolf.wolfpack.wolfymcwolfface@gmail.com",
             date_created:"2018-07-16 10:15:45",
             date_expired:"2018-08-16 10:15:45",
             poll_name:"Books for Bookclub?",
