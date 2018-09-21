@@ -35,6 +35,7 @@ module.exports = (knex) => {
     console.log(voteURL);
     const email = req.body.email;
     const pollTitle = req.body['poll-title'];
+    const createdDate = moment();
     const expiredDate = req.body.date;
     console.log(moment(expiredDate));
     //console.log(moment().isAfter(expiredDate));
@@ -47,7 +48,7 @@ module.exports = (knex) => {
       index++;
     }
 
-    /*knex('polls')
+    knex('polls')
       .insert({
         poll_id: id,
         vote_url: voteURL,
@@ -57,9 +58,11 @@ module.exports = (knex) => {
         poll_name: pollTitle,
         poll_options: choices,
       })
-      .then((results) => {
-        res.json(results);
-    });*/
+      .then(() => {
+        res.json({
+          shareURL: voteURL
+        });
+    });
   });
 
   return router;
