@@ -70,15 +70,15 @@ $(document).ready(function () {
       pollTitle: question,
       date: date
     };
+
     let choices = [];
     $('.choices').each(function() {
       choices.push($(this).val());
     });
-    console.log(choices);
     for (let i in choices) {
       options[i] = choices[i];
     }
-    console.log(options);
+
     $.ajax({
       method: 'POST',
       url: '/poll/new',
