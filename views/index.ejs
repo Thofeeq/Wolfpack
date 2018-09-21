@@ -58,21 +58,35 @@
               <form action="">
                   <p>Ask your question!</p>
                   <textarea name="pollName" id="pollName" cols="100" rows="1"></textarea>
-                  <input type="text" placeholder = "Pick the poll end date!" class="date-picker">
+
+
                   <div id="option-container">
-                      <input type="text" placeholder ="(required)" id = "req-choice-1" class="choices">
-                      <input type="text" placeholder ="(required)" id = "req-choice-2" class="choices">
+                    <div class ="option-remove-wrapper">
+                        <div class="input-group-text" id="tt">option 1</div>
+                        <input type="text" placeholder ="(required)" id = "req-choice-1" class="choices" name="c1">
+                    </div>
+                    <div class ="option-remove-wrapper">
+                        <div class="input-group-text custom-label">option 2</div>
+                        <input type="text" placeholder ="(required)" id="req-choice-2" class="choices" name ="c2">
+                    </div>
+
                   </div>
                   <div class="alert alert-danger errors"  id="fieldEmptyError" role="alert">
                       Must fill the required fields first!
                     </div>
 
                  <input type="image" id ="btn-add" src="images/add.png">
+                 <div class="date-container">
+                    <p>Close the poll at: </p>
+                    <input type="text" class="date-picker">
+                    <button type="button" class="btn btn-outline-success" id="btn-publish">Publish</button>
+                 </div>
               </form>
               
+
             </div>
             <div class = "col-lg-2 publish-area debug">
-                <button type="button" class="btn btn-outline-success" id="btn-publish">Success</button>
+                
             </div>
           </div>
         </div>

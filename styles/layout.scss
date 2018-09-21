@@ -3,6 +3,14 @@ $logo-font: 'Poor Story', cursive;
 $primary-color: rgb(14, 35, 128);
 $login-right-bg: white;
 
+
+.input-group-text{
+      
+  border-right:none; 
+  height:auto;
+  border-color:transparent;
+  border-radius: 0px;
+ }
   .container-custom{
     margin: 0;
     display: flex;
@@ -129,9 +137,7 @@ $login-right-bg: white;
   height:180px;
 }
 
-.remove-margin{
-  margin:0!important;
-}
+
 
 .poll-area{
   font-family: $app-font;
@@ -154,6 +160,8 @@ $login-right-bg: white;
         height:32px;
         align-self: center;
       }
+
+
   }
   
   p{
@@ -162,40 +170,81 @@ $login-right-bg: white;
     text-align: center;
   }
   textarea{
-
+  
     white-space: normal;
     text-align: justify;
     -moz-text-align-last: center;
     text-align-last: center;
     font-size:25px;
-    width:900px;
+    width:980px;
+    border-color:#0e2380;
     border-radius: 10px;
    resize: none;
    height:50px;
   }
 
+  .date-container{
+    margin-top:40px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width:974px;
+    p{
+      font-size: 1rem;
+    }
+
+    #btn-publish{
+      border-color:transparent;
+    }
+  }
   .date-picker{
-    background-color: transparent;
+    display:flex;
+    // margin-left:50%-19%;
+    // align-self:center;
+    background-image: url("/images/calendar.png");
+    background-repeat: no-repeat;
+    background-size:32px;
+    background-position-x:64px;
     border: 0px solid;
     margin-top:10px;
-    width:17%;
-    align-self:center;
+    width:19%;
+    
     border-radius:10px;
   }
 
-  .choices{
+  .option-remove-wrapper{
     margin-top:5px;
     margin-bottom:5px;
     display: flex;
-    white-space: normal;
-    text-align: justify;
-    -moz-text-align-last: center;
-    text-align-last: center;
-    font-size:25px;
-    width:900px;
-    border-radius: 10px;
-   resize: none;
-   height:50px;
+    input[type="image"]{
+      margin-left:5px;
+      width:32px;
+      height:32+9px;
+      padding-top:9px;
+    }
+    input[type="text"] {
+     
+      border-style:solid;
+      border-color:#e9ecef;
+      white-space: normal;
+      text-align: justify;
+      -moz-text-align-last: center;
+      text-align-last: center;
+      font-size:25px;
+      width:900px;
+     resize: none;
+     height:50px;
+     border-left:none;
+     border-top-right-radius: 10px;
+     border-bottom-right-radius: 10px;
+
+
+    }
+  //  background-image: url("/images/remove.png");
+  //  background-size: 32px;
+  //  background-repeat: no-repeat;
+  //  background-position: 860px 9px;
+   
   }
 
   
