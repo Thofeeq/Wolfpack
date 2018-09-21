@@ -72,7 +72,7 @@ $(document).ready(function () {
 
   });
 
-//sortable 
+//sortable
 
   $( "#sortable" ).sortable();
   $( "#sortable" ).disableSelection();
