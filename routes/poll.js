@@ -48,14 +48,13 @@ module.exports = (knex) => {
       }
       index++;
     }
-    const apiKey = '7a9a515596cd985458c64bb00f90635e-0e6e8cad-3d0a4f17';
-    const domain = 'sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org';
-    const mailgun = require('mailgun-js')({apiKey:apiKey, domain:domain});
+    
+    const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
     const dataAdmin = {
       from: 'WOLFPACK <postmaster@sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org>',
       to:email,
       subject: `WolfPack Poll Admin Link ${pollTitle}` ,
-      text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/polls/${voteURL}`
+      text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/poll/${voteURL}`
     };
     mailgun.messages().send(dataAdmin, function (error, body){
       console.log(body);
