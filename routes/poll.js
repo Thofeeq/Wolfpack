@@ -4,6 +4,7 @@ const express = require('express');
 const router  = express.Router();
 const urlGenerate = require('gfycat-style-urls');
 const moment = require('moment');
+const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
 moment().format();
 
 module.exports = (knex) => {
@@ -48,17 +49,17 @@ module.exports = (knex) => {
       }
       index++;
     }
-    
-    const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
+
+
     const dataAdmin = {
       from: 'WOLFPACK <postmaster@sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org>',
       to:email,
       subject: `WolfPack Poll Admin Link ${pollTitle}` ,
       text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/poll/${voteURL}`
     };
-    mailgun.messages().send(dataAdmin, function (error, body){
-      console.log(body);
-    });
+    // mailgun.messages().send(dataAdmin, function (error, body){
+    //   console.log(body);
+    // });
 
     knex('polls')
       .insert({
