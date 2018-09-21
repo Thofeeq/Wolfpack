@@ -3,6 +3,8 @@
 const express = require('express');
 const router  = express.Router();
 const urlGenerate = require('gfycat-style-urls');
+const moment = require('moment');
+moment().format();
 
 module.exports = (knex) => {
 
@@ -11,6 +13,7 @@ module.exports = (knex) => {
 
   });
 
+
   // Post vote data to database
   router.post('/:id/vote', (req, res) => {
     const voterName = req.body.name;
@@ -18,19 +21,21 @@ module.exports = (knex) => {
 
   // Post new poll data to database
   router.post('/new', (req, res) => {
-    console.log(req.body);
     const id = generateRandomString();
     const voteURL = urlGenerate.generateCombination(2, '', true);
     console.log(voteURL);
     const email = req.body.email;
     const pollTitle = req.body['poll-title'];
-    const createdDate = new Date();
     const expiredDate = req.body.date;
+    console.log(moment(expiredDate));
+    //console.log(moment().isAfter(expiredDate));
     let choices = {};
+    let index = 0;
     for (let i in req.body) {
-      if (i.charAt(0) === 'c') {
+      if (i === index.toString()) {
         choices[i] = req.body[i];
       }
+      index++;
     }
 
     /*knex('polls')
