@@ -36,9 +36,9 @@
                 <h1><%= poll_name %></h1>
               
                 <ul id= "sortable">
-                  <%console.log(Object.keys(results).length)%>
-                  <% for(let i = 1; i <= Object.keys(results).length ; i++) { %>
-                    <li><%= results[i] %></li>
+                  <%console.log(Object.keys(poll_options).length)%>
+                  <% for(let i = 0; i < Object.keys(poll_options).length ; i++) { %>
+                    <li><%= poll_options[i] %></li>
                     <% } %>
                 </ul>
                 <button type="submit">Vote!</button>
