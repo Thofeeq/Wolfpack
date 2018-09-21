@@ -72,13 +72,6 @@ $(document).ready(function () {
 
   })
 
-
-  });
-
-
-
-
-
   $('#form-publish').on('submit', function(e) {
     e.preventDefault();
     console.log('poll submit clicked');
@@ -107,5 +100,12 @@ $(document).ready(function () {
       console.log('Login-form ajax call completed');
     });
   });
+});
+
+
+
+
+
+
 
 
