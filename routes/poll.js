@@ -9,19 +9,29 @@ moment().format();
 module.exports = (knex) => {
 
   // Get poll page to vote
-  router.get('/:id', (req, res) => {
+  router.get('/:poll_url', (req, res) => {
 
+    const urlToVote = req.params.poll_url;
+    knex.select("*")
+    .from("polls")
+    .where({'polls.vote_url' : urlToVote})
+    .then((results) => {
+      console.log(results);
+      console.log(results[0]);
+      res.render("user-vote", results[0]);
+    });
   });
 
 
   // Post vote data to database
   router.post('/:id/vote', (req, res) => {
-    const voterName = req.body.name;
+
   });
 
   // Post new poll data to database
   router.post('/new', (req, res) => {
     const id = generateRandomString();
+    console.log(req.body);
     const voteURL = urlGenerate.generateCombination(2, '', true);
     console.log(voteURL);
     const email = req.body.email;
@@ -61,10 +71,11 @@ module.exports = (knex) => {
         poll_name: pollTitle,
         poll_options: choices,
       })
-      .then((results) => {
-        res.json(results);
+      .then(() => {
+        res.json({
+          shareURL: voteURL
+        });
     });
-  
   });
 
   return router;

@@ -45,12 +45,17 @@ app.use(express.static("public"));
 app.use("/poll", pollRoutes(knex));
 app.use("/admin", adminRoutes(knex));
 
+
+
+//temp poll object
+
+
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-//test route - Thofeeq
+//test route - create-poll
 app.get("/create-poll", (req, res) => {
 
   res.render("create-poll");
@@ -61,6 +66,11 @@ app.get("/test_input", (req, res) => {
 
   res.render("test_input");
 });
+
+//test route - user vote
+
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
