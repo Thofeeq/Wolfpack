@@ -56,22 +56,16 @@ $(document).ready(function () {
     if(isStringEmpty(requireChoice1) || isStringEmpty(requireChoice2))
     {
       $("#fieldEmptyError").slideDown(100);
-      
-        
-  
-      
-     
-      
     } else{
 
       $("#fieldEmptyError").hide();
       
       
-      $('<div class ="option-remove-wrapper">\
+      $("#option-container").append('<div class ="option-remove-wrapper">\
       <div class="input-group-text">option ' + getOptionPosition() + '</div>\
         <input type="text" id = "req-choice-1" class="choices" name="c1">\
         <input type="image" src="/images/remove.png" class ="btn-remove-custom" alt="remove">\
-      </div>').appendTo("#option-container").slideDown(1000);
+      </div>');
         
 
     }
@@ -83,7 +77,7 @@ $(document).ready(function () {
 
 
 
-  $("#date").flatpickr({enableTime:true});
+
 
   $('#submit-poll').on('submit', function(e) {
     e.preventDefault();

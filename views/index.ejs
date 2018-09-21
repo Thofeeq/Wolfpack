@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    
+
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -29,9 +29,9 @@
                 <p>Invite your friends to participate</p>
               </div>
             </div>
-      
+
           </div>
-      
+
           <div class = "right-index">
             <img src="/images/logo.png" id ="logo-1" alt="">
             <p id="logo-name">WOLFPACK</p>
@@ -52,10 +52,10 @@
           </div>
           <div class="row">
             <div class = "col-lg-2 debug">
-    
+
             </div>
             <div class = "col-lg-8 poll-area debug">
-              <form action="">
+              <form id="form-publish">
                   <p>Ask your question!</p>
                   <textarea name="pollName" id="pollName" cols="100" rows="1"></textarea>
 
@@ -69,12 +69,10 @@
                         <div class="input-group-text custom-label">option 2</div>
                         <input type="text" placeholder ="(required)" id="req-choice-2" class="choices" name ="c2">
                     </div>
-
-                  </div>
+                    </div>
                   <div class="alert alert-danger errors"  id="fieldEmptyError" role="alert">
                       Must fill the required fields first!
                     </div>
-
                  <input type="image" id ="btn-add" src="images/add.png">
                  <div class="date-container">
                     <p>Close the poll at: </p>
@@ -87,9 +85,14 @@
             </div>
             <div class = "col-lg-2 publish-area debug">
                 
+                 <div class = "col-lg-2 publish-area debug">
+                  
+                </div>
+              </form>
+
             </div>
           </div>
         </div>
-        
+
   </body>
 </html>
