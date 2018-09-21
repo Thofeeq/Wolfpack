@@ -20,7 +20,6 @@ module.exports = (knex) => {
 
   // Post new poll data to database
   router.post('/new', (req, res) => {
-    console.log(req.body);
     const id = generateRandomString();
     const voteURL = urlGenerate.generateCombination(2, '', true);
     console.log(voteURL);
@@ -30,10 +29,12 @@ module.exports = (knex) => {
     console.log(moment(expiredDate));
     //console.log(moment().isAfter(expiredDate));
     let choices = {};
+    let index = 0;
     for (let i in req.body) {
-      if (i.charAt(0) === 'c') {
+      if (i === index.toString()) {
         choices[i] = req.body[i];
       }
+      index++;
     }
 
     /*knex('polls')
