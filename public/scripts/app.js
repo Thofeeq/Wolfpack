@@ -6,6 +6,7 @@ $(document).ready(function () {
   // $("#date").flatpickr({enableTime:true});
   $(".features-box").hide();
   $(".features-box").slideToggle(1000).show();
+<<<<<<< HEAD
 
   $("#btn-register").click(function(){
     $("#login-page-container").hide(("slide", {direction: "right"}, 1000));
@@ -78,6 +79,22 @@ $(document).ready(function () {
   // $('#vote-form').on('submit', function(e) {
 
   // });
+=======
+  $("#date").flatpickr({enableTime:true});
+
+  $('#submit-poll').on('submit', function(e) {
+    e.preventDefault();
+    console.log('poll submit clicked');
+    const data = $(this).serialize();
+    $.ajax({
+      method: 'POST',
+      url: '/poll/new',
+      data: data
+    }).done(() => {
+      console.log('Login-form ajax call completed');
+    });
+  });
+>>>>>>> 6f8e395c02b9daa09207acc8d3240356891329af
 
 // });
 
