@@ -26,6 +26,7 @@ module.exports = (knex) => {
     console.log(voteURL);
     const email = req.body.email;
     const pollTitle = req.body['poll-title'];
+    const createdDate = moment();
     const expiredDate = req.body.date;
     console.log(moment(expiredDate));
     //console.log(moment().isAfter(expiredDate));
