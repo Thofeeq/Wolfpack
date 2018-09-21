@@ -79,7 +79,7 @@ $(document).ready(function () {
 
 
 
-  $('#submit-poll').on('submit', function(e) {
+  $('#form-publish').on('submit', function(e) {
     e.preventDefault();
     console.log('poll submit clicked');
     const email = $('#email').val();
@@ -102,7 +102,7 @@ $(document).ready(function () {
     $.ajax({
       method: 'POST',
       url: '/poll/new',
-      data: options
+      data: options,
     }).done(() => {
       console.log('Login-form ajax call completed');
     });
