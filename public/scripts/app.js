@@ -54,44 +54,38 @@ $(document).ready(function () {
 
   })
 
-  // ajax call to add user to database
-  // $('#login-form').on('submit', function(e) {
-  //   e.preventDefault();
-  //   const email = $(this).serialize();
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: '/admin',
-  //     data: email
-  //   }).done(() => {
-  //     console.log('Login-form ajax call completed');
-  //   });
 
-  });
-
-
-
-  // Set vote items to sortable
-  // $('#sortable').sortable();
-  // $('#sortable').disableSelection();
-
-  // // Vote form submit
-  // $('#vote-form').on('submit', function(e) {
-
-  // });
   $("#date").flatpickr({enableTime:true});
 
-  $('#submit-poll').on('submit', function(e) {
+
+
+  $('#form-publish').on('submit', function(e) {
     e.preventDefault();
     console.log('poll submit clicked');
-    const data = $(this).serialize();
+    const email = $('#email').val();
+    const question = $('#pollName').val();
+    const date = $('.date-picker').val();
+    let options = {
+      email: email,
+      pollTitle: question,
+      date: date
+    };
+
+    let choices = [];
+    $('.choices').each(function() {
+      choices.push($(this).val());
+    });
+    for (let i in choices) {
+      options[i] = choices[i];
+    }
+
     $.ajax({
       method: 'POST',
       url: '/poll/new',
-      data: data
+      data: options,
     }).done(() => {
       console.log('Login-form ajax call completed');
     });
   });
 
-// });
-
+});
