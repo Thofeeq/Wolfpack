@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vote - Wolfpack</title>
+  <title>Results - WolfPack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700,700i" rel="stylesheet">
@@ -15,42 +15,40 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/user-votes.js"></script>
 </head>
-  <body>
-      <div class="row">
-        <div class="col-lg-12 nav-bar-custom">
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 nav-bar-custom">
         <img src="/images/werewolf.png" alt="">
         <p class ="logo">WOLFPACK</p>
-       </div>
-       </div>
+      </div>
+    </div>
 
-       <div class="row">
-         <div class = "col-lg-2">
+    <div class="row">
+      <div class="col-lg-2">
+        
+      </div>
 
-         </div>
+      <div class = "col-lg-8">
+        <p><%= results.length %> votes have been recorded</p>
+        <%for(let  i = 0; i < results.length; i++) {%>
+          <%let highestPoint = Object.keys(results[i].results).length;%>
+          <%for(let j = 1; j <= Object.keys(results[i].results).length; j++) { %>
+            <% let pointTallyArray = [0]; %>
+            <% pointTallyArray[i] = pointTallyArray[i] + (highestPoint--) %>
+           <p><%= results[i].results[j] %> <%= pointTallyArray[i] %> </p>
+           <%}%>
+          <%}%>
+      </div>
 
-         <div class = "col-lg-8">
-            <div id="user-vote-poll-container">
+      <div class = "col-lg-2">
 
-                <h1><%= poll_name%></h1>
+      </div>
+    </div>
 
-                <ul id= "sortable">
-                  <%console.log(Object.keys(poll_options).length)%>
-                  <% for(let i = 0; i < Object.keys(poll_options).length ; i++) { %>
 
-                    <li><%= poll_options[i] %></li>
-                    <% } %>
-                </ul>
-                <button type="submit" id="submit-vote-btn">Vote!</button>
-             </div>
-         </div>
-
-         <div class="col-lg-2">
-
-         </div>
-       </div>
-  </body>
+  </div>
+</body>
 </html>

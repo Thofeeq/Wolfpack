@@ -1,14 +1,25 @@
 
 $(document).ready(function () {
 
+
+  
   $("#poll-page-container").hide();
   $(".errors").hide();
   $(".features-box").hide();
   $(".features-box").slideToggle(1000).show();
+  $(".description-box").hide();
+  // $(".description-box").hide();
 
-  $("#btn-register").click(function(){
+
+  $("#btn-register").click(function(e){
+    e.preventDefault();
+   
+
+ 
     $("#login-page-container").hide(("slide", {direction: "right"}, 1000));
     $("#poll-page-container").show();
+
+    
    return false;
   });
 
@@ -25,6 +36,10 @@ $(document).ready(function () {
     $(this).parent().remove();
   });
 
+  $("body").on("click",".link-add-desc" ,function(e){
+    e.preventDefault();    
+    $(this).siblings(".description-box").slideToggle(1000);
+  })
 
   $("#btn-add").click(function(e){
     e.preventDefault();
@@ -52,7 +67,8 @@ $(document).ready(function () {
     }
     var requireChoice1 = $("#req-choice-1").val();
     var requireChoice2 = $("#req-choice-2").val();
-
+    console.log(requireChoice1 + "  " + requireChoice2);
+    
     if(isStringEmpty(requireChoice1) || isStringEmpty(requireChoice2))
     {
       $("#fieldEmptyError").slideDown(100);
@@ -62,9 +78,10 @@ $(document).ready(function () {
 
 
       $("#option-container").append('<div class ="option-remove-wrapper">\
-      <div class="input-group-text">option ' + getOptionPosition() + '</div>\
+      <div class="input-group-text link-add-desc"> <a href="">+ optional description</a></div>\
         <input type="text" id = "req-choice-1" class="choices" name="c1">\
         <input type="image" src="/images/remove.png" class ="btn-remove-custom" alt="remove">\
+        <textarea class ="description-box" placeholder="Description" rows="2"></textarea>\
       </div>');
 
 
