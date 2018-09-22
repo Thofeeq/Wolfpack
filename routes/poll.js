@@ -34,8 +34,8 @@ module.exports = (knex) => {
     .then((results)=>{
       let pollId = results[0].poll_id;
       let email = results[0].created_by;
-      let pollTitle = results[0].poll_name:
-      knex("votes")
+      let pollTitle = results[0].poll_name;
+  knex("votes")
     .insert({
       poll_id:pollId,
       voter_name:userName,

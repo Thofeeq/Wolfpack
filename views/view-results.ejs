@@ -36,8 +36,8 @@
         <%for(let  i = 0; i < results.length; i++) {%>
           <%let highestPoint = Object.keys(results[i].results).length;%>
           <%for(let j = 1; j <= Object.keys(results[i].results).length; j++) { %>
-            <% let pointTallyArray = []; %>
-            <% pointTallyArray[i] = (highestPoint--) %>
+            <% let pointTallyArray = [0]; %>
+            <% pointTallyArray[i] = pointTallyArray[i] + (highestPoint--) %>
            <p><%= results[i].results[j] %> <%= pointTallyArray[i] %> </p>
            <%}%>
           <%}%>
