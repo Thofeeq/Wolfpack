@@ -72,11 +72,6 @@ $(document).ready(function () {
 
   });
 
-//sortable
-
-  // $( "#sortable" ).sortable();
-  // $( "#sortable" ).disableSelection();
-
 
 
   $('#form-publish').on('submit', function(e) {
