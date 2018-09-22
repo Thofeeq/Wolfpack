@@ -98,7 +98,6 @@ $login-right-bg: white;
         flex-direction: column;
         width:30%;
         justify-content: space-between;
-        height:125px;
         border: 1px solid rgba(14, 35, 128,0.2);
         border-radius:5px;
         padding:5px;
@@ -227,7 +226,7 @@ $login-right-bg: white;
       width:32px;
       height:32+9px;
       padding-top:9px;
-      
+
     }
     input[type="text"] {
 
@@ -261,12 +260,12 @@ $login-right-bg: white;
       border-top:none;
       border-color: grey;
       border-bottom-right-radius: 10px;
-      border-bottom-left-radius: 10px;      
+      border-bottom-left-radius: 10px;
       width:990px;
       height:100px;
       resize: none;
-   
-     
+
+
     }
 
 
@@ -315,5 +314,9 @@ $login-right-bg: white;
       padding: 0;
       justify-content: space-around }
   #sortable li { text-align: center;width:898px; font-size:30px;border: 1px solid lightgrey;}
- 
+
+}
+
+#email-err {
+  display: none;
 }

@@ -38,6 +38,7 @@
             <form id ="login-form" method="" >
               <label for="email">E-mail:</label>
               <input name = "email" id = "email" type = "email" cols= "30" rows= "2"/>
+              <p id="email-err">Email required</p>
               <button id = "btn-register">Get Started!</button>
             </form>
           </div>
@@ -87,7 +88,7 @@
         <div class="container-fluid" id="poll-submitted">
           <h3>Poll succesfully created</h3>
           <h4>Share this link with your friends: <span><input id="share-url-input" readonly='readonly'></span><span><button id="copy-btn">Copy URL</button></span></h4>
-          <p>An email has also been sent to you with the link above and a link to view the current results.</p>
+          <p>An email has also been sent to <span id="creator-email"></span> with the link above and a link to view the current results.</p>
         </div>
 
   </body>
