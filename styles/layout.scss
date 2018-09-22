@@ -172,7 +172,7 @@ $login-right-bg: white;
     margin-top:20px;
     text-align: center;
   }
-  textarea{
+  #pollName{
 
     white-space: normal;
     text-align: justify;
@@ -216,14 +216,18 @@ $login-right-bg: white;
   }
 
   .option-remove-wrapper{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin-top:5px;
     margin-bottom:5px;
-    display: flex;
     input[type="image"]{
       margin-left:5px;
+
       width:32px;
       height:32+9px;
       padding-top:9px;
+      
     }
     input[type="text"] {
 
@@ -234,19 +238,37 @@ $login-right-bg: white;
       -moz-text-align-last: center;
       text-align-last: center;
       font-size:25px;
-      width:900px;
+      width:811px;
      resize: none;
      height:50px;
      border-left:none;
      border-top-right-radius: 10px;
-     border-bottom-right-radius: 10px;
 
 
     }
-  //  background-image: url("/images/remove.png");
-  //  background-size: 32px;
-  //  background-repeat: no-repeat;
-  //  background-position: 860px 9px;
+
+    #link-add-desc{
+      border:0;
+      background-color: transparent;
+    }
+
+    #btn-remove{
+      align-self: flex-end;
+    }
+
+    .description-box{
+      display:flex;
+      border-top:none;
+      border-color: grey;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;      
+      width:990px;
+      height:100px;
+      resize: none;
+   
+     
+    }
+
 
   }
 
