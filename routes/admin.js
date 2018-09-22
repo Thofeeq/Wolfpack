@@ -13,7 +13,9 @@ module.exports = (knex) => {
     .join("polls",{"polls.poll_id" : "votes.poll_id"})
     .where({'votes.poll_id' : pollId})
     .then((results) => {
-      res.render("admin-results", results[0]);
+       let templateVar = {results}
+       console.dir(results[0]);
+      res.render("view-results", templateVar);
     });
   });
 
