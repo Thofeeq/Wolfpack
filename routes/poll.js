@@ -29,34 +29,43 @@ module.exports = (knex) => {
     const urlId = req.params.id;
     const userName = req.body.userName;
     const results = req.body.results;
+    let votes = {};
+    for (let i in results) {
+      votes[i] = results[i];
+    }
+    let email = '';
+    let pollTitle = '';
     knex.select("*")
     .from("polls")
-    .where({urlId : "polls.vote_url"})
+    .where({"polls.vote_url":urlId})
     .then((results)=>{
+      console.log(results);
       let pollId = results[0].poll_id;
-      let email = results[0].created_by;
-      let pollTitle = results[0].poll_name;
+      email = results[0].created_by;
+      pollTitle = results[0].poll_name;
       knex("votes")
-    .insert({
-      poll_id:pollId,
-      voter_name:userName,
-      results:results
-    });
-  })
-    .then(()=>{
+        .insert({
+          poll_id:pollId,
+          voter_name:userName,
+          results:votes
+        })
+        .then(()=>{
 
-      const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
-      const dataAdmin = {
-        from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
-        to:email,
-        subject: `WolfPack ${userName} voted on ${pollTitle}` ,
-        text:`See Results   http://localhost:8080/admin/${id}`
-     };
-      mailgun.messages().send(dataAdmin, function (error, body){
-        console.log(body);
-      });
-    
-    })    
+          const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
+          const dataAdmin = {
+            from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
+            to:email,
+            subject: `WolfPack ${userName} voted on ${pollTitle}` ,
+            text:`See Results   http://localhost:8080/admin/${urlId}`
+          };
+          mailgun.messages().send(dataAdmin, function (error, body){
+            console.log(body);
+          });
+          res.json({
+            url: urlId
+          });
+        })
+    })
   });
 
   // Post new poll data to database
@@ -87,9 +96,9 @@ module.exports = (knex) => {
       subject: `WolfPack Poll Admin Link ${pollTitle}` ,
       text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/poll/${voteURL}`
     };
-    // mailgun.messages().send(dataAdmin, function (error, body){
-    //   console.log(body);
-    // });
+    mailgun.messages().send(dataAdmin, function (error, body){
+      console.log(body);
+    });
 
     knex('polls')
       .insert({

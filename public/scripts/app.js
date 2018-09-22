@@ -132,6 +132,34 @@ $(document).ready(function () {
     copyText.select();
     document.execCommand("copy");
   })
+
+
+  // Vote submit button
+  $('#submit-vote-btn').on('click', function() {
+    console.log('vote button submission');
+    const pathName = window.location.pathname;
+    console.log(pathName)
+    const listElements = $('#sortable').children();
+    const userName = 'Tester';
+    let votes = {};
+    let index = 0;
+    for (let i of listElements) {
+      const text = i.innerText;
+      votes[index] = text;
+      index++;
+    }
+    const data = {
+      results: votes,
+      userName: userName
+    }
+    $.ajax({
+      method: 'POST',
+      url: `${pathName}/vote`,
+      data: data
+    }).done((results) => {
+      console.log('vote submission completed');
+    });
+  });
 });
 
 
