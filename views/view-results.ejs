@@ -32,15 +32,28 @@
       </div>
 
       <div class = "col-lg-8">
-        <p><%= results.length %> votes have been recorded</p>
-        <%for(let  i = 0; i < results.length; i++) {%>
-          <%let highestPoint = Object.keys(results[i].results).length;%>
-          <%for(let j = 1; j <= Object.keys(results[i].results).length; j++) { %>
-            <% let pointTallyArray = [0]; %>
-            <% pointTallyArray[i] = pointTallyArray[i] + (highestPoint--) %>
-           <p><%= results[i].results[j] %> <%= pointTallyArray[i] %> </p>
-           <%}%>
-          <%}%>
+        <p><%= results.length %> votes have been recorded %></p>
+        <% let points = {} %>
+                  
+        <%for(let i = 0; i < Object.keys(results[0].results).length; i++){%>
+         <% points[results[0].results[i]] = 0; %>
+       <% } %>
+
+       <%for(let i = 0; i < results.length; i++){%>
+        <%let maxPoint = Object.keys(results[0].results).length;%>
+        
+        <%for(let j = 0; j <= maxPoint+2; j++) {%>
+         <% if(results[i].results[j] in points ) %>
+         <% { %>
+          <%  points[results[i].results[j]] += maxPoint--; %>
+         <% } %>
+    <%  } %>
+    <% } %>
+            <% let counter = 0 %>
+         <%for(var x in points) { %>
+            
+              <p><%=x%>   <%=points[x]%></p>
+          <% } %>
       </div>
 
       <div class = "col-lg-2">
