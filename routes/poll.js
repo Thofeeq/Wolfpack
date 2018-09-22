@@ -56,7 +56,7 @@ module.exports = (knex) => {
             from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
             to:email,
             subject: `WolfPack ${userName} voted on ${pollTitle}` ,
-            text:`See Results   http://localhost:8080/admin/${urlId}`
+            text:`See Results   http://localhost:8080/admin/${pollId}`
           };
           mailgun.messages().send(dataAdmin, function (error, body){
             console.log(body);
