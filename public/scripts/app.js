@@ -15,9 +15,11 @@ $(document).ready(function () {
     }
   });
 
-  $(".date-picker").flatpickr({enableTime:true});
+  $(".date-picker").flatpickr({
+    enableTime: true,
+    minDate: Date.now()
+  });
   $(".date-picker").on("click",function(){
-
     $(this).css("background-image","none");
   });
 
