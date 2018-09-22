@@ -13,6 +13,7 @@ module.exports = (knex) => {
     .join("polls",{"polls.poll_id" : "votes.poll_id"})
     .where({'votes.poll_id' : pollId})
     .then((results) => {
+      console.log(results[0])
       res.render("admin-results", results[0]);
     });
   });
