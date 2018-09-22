@@ -25,7 +25,35 @@ module.exports = (knex) => {
 
   // Post vote data to database
   router.post('/:id/vote', (req, res) => {
+    const urlId = req.params.id;
+    const userName = req.body.userName;
+    const results = req.body.results;
+    knex.select("*")
+    .from("polls")
+    .where({urlId : "polls.vote_url"})
+    .then((results)=>{
+      let pollId = results[0].poll_id;
+      let email = results[0].created_by;
+      let pollTitle = results[0].poll_name:
+      knex("votes")
+    .insert({
+      poll_id:pollId,
+      voter_name:userName,
+      results:results
+    }).then(()=>{
 
+    const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
+    const dataAdmin = {
+      from: 'WOLFPACK <postmaster@sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org>',
+      to:email,
+      subject: `WolfPack ${userName} voted on ${pollTitle}` ,
+      text:`See Results   http://localhost:8080/admin/${id}`
+    };
+    mailgun.messages().send(dataAdmin, function (error, body){
+      console.log(body);
+    });
+    })
+    })    
   });
 
   // Post new poll data to database
