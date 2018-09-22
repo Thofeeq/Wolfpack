@@ -82,12 +82,6 @@ $(document).ready(function () {
 
   });
 
-//sortable
-
-  // $( "#sortable" ).sortable();
-  // $( "#sortable" ).disableSelection();
-
-
 
 
   $('#form-publish').on('submit', function(e) {
@@ -119,10 +113,18 @@ $(document).ready(function () {
       console.log('Poll succesfully submitted.');
       $('#form-publish').slideUp();
       const shareURL = results.shareURL;
-      $('#share-url-span').text(shareURL);
+      $('#share-url-input').val(shareURL);
       console.log(shareURL);
     });
   });
+
+  // Copy url to clipboard
+  $('#copy-btn').on('click', function() {
+    console.log('copy-btn clicked');
+    const copyText = document.getElementById("share-url-input");
+    copyText.select();
+    document.execCommand("copy");
+  })
 });
 
 
