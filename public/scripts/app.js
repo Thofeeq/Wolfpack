@@ -1,13 +1,9 @@
 
 $(document).ready(function () {
 
-
-
-  $("#poll-page-container").hide();
   $(".errors").hide();
   $(".features-box").hide();
   $(".features-box").slideToggle(1000).show();
-  $(".description-box").hide();
 
   $("#login-form").on('submit', function(e){
     e.preventDefault();
@@ -120,6 +116,7 @@ $(document).ready(function () {
     }).done((results) => {
       console.log('Poll succesfully submitted.');
       $('#form-publish').slideUp();
+      $('#poll-submitted').show();
       const shareURL = results.shareURL;
       $('#share-url-input').val(shareURL);
       $('#creator-email').text(email);

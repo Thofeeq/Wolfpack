@@ -136,7 +136,7 @@ $login-right-bg: white;
   background-color: $primary-color;
   font-family: $logo-font;
   font-size:40px;
-  height:18vh;
+  // height:18vh;
 }
 
 
@@ -256,7 +256,7 @@ $login-right-bg: white;
     }
 
     .description-box{
-      display:flex;
+      display:none;
       border-top:none;
       border-color: grey;
       border-bottom-right-radius: 10px;
@@ -318,5 +318,13 @@ $login-right-bg: white;
 }
 
 #email-err {
+  display: none;
+}
+
+#poll-submitted {
+  display: none;
+}
+
+#poll-page-container {
   display: none;
 }
