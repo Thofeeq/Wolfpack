@@ -93,19 +93,25 @@ $(document).ready(function () {
     const question = $('#pollName').val();
     const date = $('.date-picker').val();
 
-    let options = {
-      email: email,
-      pollTitle: question,
-      date: date,
-    };
 
     let choices = [];
     $('.choices').each(function() {
       choices.push($(this).val());
     });
-    for (let i in choices) {
-      options[i] = choices[i];
-    }
+    let descs = [];
+    $('.description-box').each(function() {
+      descs.push($(this).val());
+    });
+    // for (let i in choices) {
+    //   options[i] = choices[i];
+    // }
+    let options = {
+      email: email,
+      pollTitle: question,
+      date: date,
+      choices: choices,
+      desc: descs
+    };
 
     $.ajax({
       method: 'POST',

@@ -38,9 +38,12 @@
 
                 <ul id= "sortable">
                   <%console.log(Object.keys(poll_options).length)%>
-                  <% for(let i = 0; i <= Object.keys(poll_options).length ; i++) { %>
-                    <li><%= poll_options[i] %></li>
-                    <% } %>
+                  <% for(let i = 0; i < Object.keys(poll_options).length ; i++) { %>
+                    <li>
+                      <h2><%= Object.keys(poll_options)[i] %></h2>
+                      <p><%= poll_options[Object.keys(poll_options)[i]] %></p>
+                    </li>
+                  <% } %>
                 </ul>
                 <button type="submit" id="submit-vote-btn">Vote!</button>
              </div>
