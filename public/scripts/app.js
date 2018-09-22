@@ -1,28 +1,19 @@
 
 $(document).ready(function () {
 
-
-  
-  $("#poll-page-container").hide();
   $(".errors").hide();
   $(".features-box").hide();
   $(".features-box").slideToggle(1000).show();
-  $(".description-box").hide();
-  // $(".description-box").hide();
 
-
-  $("#btn-register").click(function(e){
+  $("#login-form").on('submit', function(e){
     e.preventDefault();
-   
-
- 
-    $("#login-page-container").hide(("slide", {direction: "right"}, 1000));
-    $("#poll-page-container").show();
-
-    
-   return false;
+    if ($('#email').val() === '') {
+      $('#email-err').show();
+    } else {
+      $("#login-page-container").hide(("slide", {direction: "right"}, 1000));
+      $("#poll-page-container").show();
+    }
   });
-
 
   $(".date-picker").flatpickr({enableTime:true});
   $(".date-picker").on("click",function(){
@@ -37,7 +28,7 @@ $(document).ready(function () {
   });
 
   $("body").on("click",".link-add-desc" ,function(e){
-    e.preventDefault();    
+    e.preventDefault();
     $(this).siblings(".description-box").slideToggle(1000);
   })
 
@@ -68,7 +59,7 @@ $(document).ready(function () {
     var requireChoice1 = $("#req-choice-1").val();
     var requireChoice2 = $("#req-choice-2").val();
     console.log(requireChoice1 + "  " + requireChoice2);
-    
+
     if(isStringEmpty(requireChoice1) || isStringEmpty(requireChoice2))
     {
       $("#fieldEmptyError").slideDown(100);
@@ -98,19 +89,25 @@ $(document).ready(function () {
     const question = $('#pollName').val();
     const date = $('.date-picker').val();
 
-    let options = {
-      email: email,
-      pollTitle: question,
-      date: date,
-    };
 
     let choices = [];
     $('.choices').each(function() {
       choices.push($(this).val());
     });
-    for (let i in choices) {
-      options[i] = choices[i];
-    }
+    let descs = [];
+    $('.description-box').each(function() {
+      descs.push($(this).val());
+    });
+    // for (let i in choices) {
+    //   options[i] = choices[i];
+    // }
+    let options = {
+      email: email,
+      pollTitle: question,
+      date: date,
+      choices: choices,
+      desc: descs
+    };
 
     $.ajax({
       method: 'POST',
@@ -119,8 +116,10 @@ $(document).ready(function () {
     }).done((results) => {
       console.log('Poll succesfully submitted.');
       $('#form-publish').slideUp();
+      $('#poll-submitted').show();
       const shareURL = results.shareURL;
       $('#share-url-input').val(shareURL);
+      $('#creator-email').text(email);
       console.log(shareURL);
     });
   });
@@ -138,13 +137,13 @@ $(document).ready(function () {
   $('#submit-vote-btn').on('click', function() {
     console.log('vote button submission');
     const pathName = window.location.pathname;
-    console.log(pathName)
     const listElements = $('#sortable').children();
     const userName = 'Tester';
     let votes = {};
     let index = 0;
     for (let i of listElements) {
-      const text = i.innerText;
+      const h2 = $(i).children();
+      const text = h2[0].innerText;
       votes[index] = text;
       index++;
     }

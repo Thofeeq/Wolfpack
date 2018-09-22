@@ -56,7 +56,7 @@ module.exports = (knex) => {
             from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
             to:email,
             subject: `WolfPack ${userName} voted on ${pollTitle}` ,
-            text:`See Results   http://localhost:8080/admin/${urlId}`
+            text:`See Results   http://localhost:8080/admin/${pollId}`
           };
           mailgun.messages().send(dataAdmin, function (error, body){
             console.log(body);
@@ -71,7 +71,6 @@ module.exports = (knex) => {
   // Post new poll data to database
   router.post('/new', (req, res) => {
     const id = generateRandomString();
-    console.log(req.body);
     const voteURL = urlGenerate.generateCombination(2, '', true);
     console.log(voteURL);
     const email = req.body.email;
@@ -81,12 +80,8 @@ module.exports = (knex) => {
     console.log(moment(expiredDate));
     //console.log(moment().isAfter(expiredDate));
     let choices = {};
-    let index = 0;
-    for (let i in req.body) {
-      if (i === index.toString()) {
-        choices[i] = req.body[i];
-      }
-      index++;
+    for (let i in req.body.choices) {
+      choices[req.body.choices[i]] = req.body.desc[i];
     }
 
 
