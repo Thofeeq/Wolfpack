@@ -140,13 +140,13 @@ $(document).ready(function () {
   $('#submit-vote-btn').on('click', function() {
     console.log('vote button submission');
     const pathName = window.location.pathname;
-    console.log(pathName)
     const listElements = $('#sortable').children();
     const userName = 'Tester';
     let votes = {};
     let index = 0;
     for (let i of listElements) {
-      const text = i.innerText;
+      const h2 = $(i).children();
+      const text = h2[0].innerText;
       votes[index] = text;
       index++;
     }
