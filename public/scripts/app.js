@@ -82,12 +82,6 @@ $(document).ready(function () {
 
   });
 
-//sortable
-
-  // $( "#sortable" ).sortable();
-  // $( "#sortable" ).disableSelection();
-
-
 
 
   $('#form-publish').on('submit', function(e) {
@@ -119,8 +113,44 @@ $(document).ready(function () {
       console.log('Poll succesfully submitted.');
       $('#form-publish').slideUp();
       const shareURL = results.shareURL;
-      $('#share-url-span').text(shareURL);
+      $('#share-url-input').val(shareURL);
       console.log(shareURL);
+    });
+  });
+
+  // Copy url to clipboard
+  $('#copy-btn').on('click', function() {
+    console.log('copy-btn clicked');
+    const copyText = document.getElementById("share-url-input");
+    copyText.select();
+    document.execCommand("copy");
+  })
+
+
+  // Vote submit button
+  $('#submit-vote-btn').on('click', function() {
+    console.log('vote button submission');
+    const pathName = window.location.pathname;
+    console.log(pathName)
+    const listElements = $('#sortable').children();
+    const userName = 'Tester';
+    let votes = {};
+    let index = 0;
+    for (let i of listElements) {
+      const text = i.innerText;
+      votes[index] = text;
+      index++;
+    }
+    const data = {
+      results: votes,
+      userName: userName
+    }
+    $.ajax({
+      method: 'POST',
+      url: `${pathName}/vote`,
+      data: data
+    }).done((results) => {
+      console.log('vote submission completed');
     });
   });
 });

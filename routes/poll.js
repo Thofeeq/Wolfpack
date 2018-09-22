@@ -4,6 +4,7 @@ const express = require('express');
 const router  = express.Router();
 const urlGenerate = require('gfycat-style-urls');
 const moment = require('moment');
+const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
 moment().format();
 
 module.exports = (knex) => {
@@ -25,7 +26,46 @@ module.exports = (knex) => {
 
   // Post vote data to database
   router.post('/:id/vote', (req, res) => {
+    const urlId = req.params.id;
+    const userName = req.body.userName;
+    const results = req.body.results;
+    let votes = {};
+    for (let i in results) {
+      votes[i] = results[i];
+    }
+    let email = '';
+    let pollTitle = '';
+    knex.select("*")
+    .from("polls")
+    .where({"polls.vote_url":urlId})
+    .then((results)=>{
+      console.log(results);
+      let pollId = results[0].poll_id;
+      email = results[0].created_by;
+      pollTitle = results[0].poll_name;
+      knex("votes")
+        .insert({
+          poll_id:pollId,
+          voter_name:userName,
+          results:votes
+        })
+        .then(()=>{
 
+          const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
+          const dataAdmin = {
+            from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
+            to:email,
+            subject: `WolfPack ${userName} voted on ${pollTitle}` ,
+            text:`See Results   http://localhost:8080/admin/${urlId}`
+          };
+          mailgun.messages().send(dataAdmin, function (error, body){
+            console.log(body);
+          });
+          res.json({
+            url: urlId
+          });
+        })
+    })
   });
 
   // Post new poll data to database
@@ -48,10 +88,10 @@ module.exports = (knex) => {
       }
       index++;
     }
-    
-    const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
+
+
     const dataAdmin = {
-      from: 'WOLFPACK <postmaster@sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org>',
+      from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
       to:email,
       subject: `WolfPack Poll Admin Link ${pollTitle}` ,
       text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/poll/${voteURL}`
