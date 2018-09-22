@@ -34,25 +34,27 @@ module.exports = (knex) => {
     .then((results)=>{
       let pollId = results[0].poll_id;
       let email = results[0].created_by;
-      let pollTitle = results[0].poll_name:
+      let pollTitle = results[0].poll_name;
       knex("votes")
     .insert({
       poll_id:pollId,
       voter_name:userName,
       results:results
-    }).then(()=>{
-
-    const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
-    const dataAdmin = {
-      from: 'WOLFPACK <postmaster@sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org>',
-      to:email,
-      subject: `WolfPack ${userName} voted on ${pollTitle}` ,
-      text:`See Results   http://localhost:8080/admin/${id}`
-    };
-    mailgun.messages().send(dataAdmin, function (error, body){
-      console.log(body);
     });
-    })
+  })
+    .then(()=>{
+
+      const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
+      const dataAdmin = {
+        from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
+        to:email,
+        subject: `WolfPack ${userName} voted on ${pollTitle}` ,
+        text:`See Results   http://localhost:8080/admin/${id}`
+     };
+      mailgun.messages().send(dataAdmin, function (error, body){
+        console.log(body);
+      });
+    
     })    
   });
 
@@ -79,7 +81,7 @@ module.exports = (knex) => {
     
     const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
     const dataAdmin = {
-      from: 'WOLFPACK <postmaster@sandbox118e24059d114c0d801afd0f6ffe8577.mailgun.org>',
+      from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
       to:email,
       subject: `WolfPack Poll Admin Link ${pollTitle}` ,
       text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/poll/${voteURL}`
