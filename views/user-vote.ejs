@@ -34,26 +34,16 @@
 
          <div class = "col-lg-8">
             <div id="user-vote-poll-container">
-<<<<<<< HEAD
-=======
-
->>>>>>> ae892e6b9e802ac4043da031161d1344f5a2de01
                 <h1><%= poll_name%></h1>
 
                 <ul id= "sortable">
                   <%console.log(Object.keys(poll_options).length)%>
                   <% for(let i = 0; i < Object.keys(poll_options).length ; i++) { %>
-<<<<<<< HEAD
                     <li>
                       <h2><%= Object.keys(poll_options)[i] %></h2>
                       <p><%= poll_options[Object.keys(poll_options)[i]] %></p>
                     </li>
                   <% } %>
-=======
-
-                    <li><%= poll_options[i] %></li>
-                    <% } %>
->>>>>>> ae892e6b9e802ac4043da031161d1344f5a2de01
                 </ul>
                 <button type="submit" id="submit-vote-btn">Vote!</button>
              </div>
