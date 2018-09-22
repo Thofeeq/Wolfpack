@@ -87,9 +87,9 @@ module.exports = (knex) => {
       subject: `WolfPack Poll Admin Link ${pollTitle}` ,
       text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/poll/${voteURL}`
     };
-    // mailgun.messages().send(dataAdmin, function (error, body){
-    //   console.log(body);
-    // });
+     mailgun.messages().send(dataAdmin, function (error, body){
+      console.log(body);
+     });
 
     knex('polls')
       .insert({
