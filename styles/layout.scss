@@ -185,10 +185,11 @@ $login-right-bg: white;
 
   .date-container{
     margin-top:40px;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    width:974px;
+    text-align: center;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content:space-between;
+    // width:974px;
     p{
       display:flex;
       flex-direction: row;
@@ -203,19 +204,27 @@ $login-right-bg: white;
       height:32px;  
     }
     #btn-publish{
-      border-color:transparent;
+      margin-top: 20px;
     }
   }
   .date-picker{
     display:flex;
+    text-align: center;
     // margin-left:50%-19%;
     // align-self:center;
     // background-image: url("/images/calendar.png");
     // background-repeat: no-repeat;
     // background-size:32px;
     // background-position-x:64px;
+<<<<<<< HEAD
     border: 0px solid;
     margin-top:10px;
+=======
+    border: 1px solid rgb(233, 233, 233);
+    margin: 0 auto;
+    width:350px;
+
+>>>>>>> f477b9309e15c3a241c71fec5c9dac985f229154
     border-radius:10px;
 
 
@@ -301,8 +310,11 @@ $login-right-bg: white;
 
 
   display:flex;
+<<<<<<< HEAD
   height: 80vh;
 
+=======
+>>>>>>> f477b9309e15c3a241c71fec5c9dac985f229154
   font-family: $app-font;
   flex-direction: column;
   align-items: center;
@@ -320,7 +332,17 @@ $login-right-bg: white;
      margin: 0;
       padding: 0;
       justify-content: space-around }
-  #sortable li { text-align: center;width:898px; border: 1px solid lightgrey;}
+  #sortable li {
+    text-align: center;
+    width:600px;
+    border-radius: 5px;
+    border: 3px solid rgb(14, 35, 128);
+    background-color: rgb(233, 233, 233);
+    margin: 10px 0px;
+  }
+  #submit-vote-btn {
+    margin: 10px 0 40px 0;
+  }
 
 }
 
@@ -330,6 +352,7 @@ $login-right-bg: white;
   
 }
 
+<<<<<<< HEAD
 .poll-submitted {
   display: flex;
   flex-direction: column;
@@ -352,6 +375,8 @@ $login-right-bg: white;
   }
 }
 
+=======
+>>>>>>> f477b9309e15c3a241c71fec5c9dac985f229154
 #poll-page-container {
   display: none;
 }
@@ -376,6 +401,7 @@ $login-right-bg: white;
   display:flex;
   flex-direction: row;
 }
+<<<<<<< HEAD
 #current-lead{
   font-family: $app-font;
   color:$primary-color;
@@ -401,3 +427,9 @@ $login-right-bg: white;
 #vote-success{
   display: hidden;
 }
+=======
+
+#share-url-input {
+  width: 400px;
+}
+>>>>>>> f477b9309e15c3a241c71fec5c9dac985f229154

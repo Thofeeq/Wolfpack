@@ -16,17 +16,17 @@ $(document).ready(function() {
 
   var options = {
     title: {
-      text: $("#question").text(),            
+      text: $("#question").text(),
     },
-    data: [              
+    data: [
     {
-      type: "pie",
+      type: "column",
 			startAngle: 45,
 			showInLegend: "true",
 			legendText: "{label}",
 			indexLabel: "{label} ({y})",
       // Change type to "doughnut", "line", "splineArea", etc.
-     
+
       dataPoints: getDataPoints()
     }
     ]
