@@ -1,29 +1,18 @@
 $(document).ready(function() {
 
-  function getDataPoints()
-  {
+  function getDataPoints(){
     dataPoints = [];
     function dataToPrint(label, y) {
       this.label = label;
       this.y = y;
     }
-
-
-    for(i = 0; i < $(".label").length; i++)
-    {
-
-
-
+    
+    for(i = 0; i < $(".label").length; i++){ 
       var dataOption = new dataToPrint($(`#a${i}`).text(),parseInt($(`#${i}`).text()));
       dataPoints.push(dataOption);
     };
-
-      console.log(dataPoints);
-
-  return dataPoints;
+  return dataPoints;  
   }
-
-
 
   var options = {
     title: {

@@ -38,10 +38,32 @@ $(document).ready(function () {
   $("#btn-add").click(function(e){
     e.preventDefault();
 
+    function isStringEmpty(s) {
+      var emptyOuput = false;
+      if(s.indexOf(' ') >= 0){
+        var hasWhiteSpace =  true;
+      }
+
+      if(s === "") {
+        var emptyString = true;
+      }
+
+      if(hasWhiteSpace || emptyString) {
+        emptyOuput = true;
+      }
+      return emptyOuput;
+    }
+    function getOptionPosition(){
+      let position = "";
+      let currentNumOfOptions = $("#option-container  input[type='text']").length + 1;
+      position = currentNumOfOptions;
+      return position;
+    }
     var requireChoice1 = $("#req-choice-1").val();
     var requireChoice2 = $("#req-choice-2").val();
+    console.log(requireChoice1 + "  " + requireChoice2);
 
-    if ((requireChoice1 === '') || (requireChoice2 === ''))
+    if(isStringEmpty(requireChoice1) || isStringEmpty(requireChoice2))
     {
       $("#fieldEmptyError").slideDown(100);
     } else{
@@ -55,6 +77,8 @@ $(document).ready(function () {
         <input type="image" src="/images/remove.png" class ="btn-remove-custom" alt="remove">\
         <textarea class ="description-box" placeholder="Description" rows="2"></textarea>\
       </div>');
+
+
     }
 
   });
@@ -82,9 +106,7 @@ $(document).ready(function () {
     } else if (date === '') {
       inputErr.text('You must select a date');
       inputErr.slideDown();
-    } else if (!checkForDuplicates()) {
-      inputErr.text('Your options must be unique');
-      inputErr.slideDown();
+      $("#option-container input").css("border-color","#e9ecef");
     } else {
       // Everything is filled out, proceed
       let choices = [];
@@ -110,14 +132,13 @@ $(document).ready(function () {
       }).done((results) => {
         console.log('Poll succesfully submitted.');
         $('#form-publish').slideUp();
-        $('.poll-submitted').show();
+        $('.poll-submitted').css("display","flex");
         const shareURL = results.shareURL;
         $('#share-url-input').val(`localhost:8080/poll/${shareURL}`);
         $('#creator-email').text(email);
         console.log(shareURL);
       });
     }
-  
   });
 
   // Copy url to clipboard
@@ -132,9 +153,7 @@ $(document).ready(function () {
 
 
   // Vote submit button
-  $('#submit-vote-btn').on('click', function(e) {
-    $("#user-vote-poll-container").hide();
-    $(".vote-success").show();
+  $('#submit-vote-btn').on('click', function() {
     console.log('vote button submission');
     const pathName = window.location.pathname;
     const listElements = $('#sortable').children();
@@ -159,22 +178,12 @@ $(document).ready(function () {
       console.log('vote submission completed');
     });
   });
-
+  $("#user-vote-poll-container").hide();
+  $(".vote-success").show();
 });
 
 
-function checkForDuplicates() {
-  let dupeCheck = []
-  let noDuplicates = true;
-  $('.choices').each(function() {
-    if (dupeCheck.indexOf($(this).val()) === -1) {
-      dupeCheck.push($(this).val());
-    } else {
-      noDuplicates = false;
-    }
-  });
-  return noDuplicates;
-}
+
 
 
 
