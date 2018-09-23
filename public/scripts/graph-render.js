@@ -20,7 +20,7 @@ $(document).ready(function() {
     },
     data: [
     {
-      type: "column",
+      type: "doughnut",
 			startAngle: 45,
 			showInLegend: "true",
 			legendText: "{label}",
