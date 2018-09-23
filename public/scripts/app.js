@@ -138,7 +138,7 @@ $(document).ready(function () {
     console.log('vote button submission');
     const pathName = window.location.pathname;
     const listElements = $('#sortable').children();
-    const userName = 'Tester';
+    const userName = $('#voter-name').val();
     let votes = {};
     let index = 0;
     for (let i of listElements) {

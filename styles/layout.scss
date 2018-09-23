@@ -295,7 +295,7 @@ $login-right-bg: white;
 #user-vote-poll-container{
 
 
-  display:flex;
+  display: none;
   // height: 80vh;
 
   font-family: $app-font;
@@ -405,4 +405,13 @@ $login-right-bg: white;
 
 #vote-success{
   display: hidden;
+}
+
+#voter-name-input {
+  text-align: center;
+}
+
+#voter-name-err {
+  margin-top: 10px;
+  display: none;
 }
