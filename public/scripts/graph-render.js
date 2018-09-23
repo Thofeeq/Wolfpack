@@ -31,8 +31,13 @@ $(document).ready(function() {
     },
     data: [              
     {
+      type: "pie",
+			startAngle: 45,
+			showInLegend: "true",
+			legendText: "{label}",
+			indexLabel: "{label} ({y})",
       // Change type to "doughnut", "line", "splineArea", etc.
-      type: "column",
+     
       dataPoints: getDataPoints()
     }
     ]
