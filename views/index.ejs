@@ -38,9 +38,13 @@
             <form id ="login-form" method="" >
               <label for="email">E-mail:</label>
               <input name = "email" id = "email" type = "email" cols= "30" rows= "2"/>
-              <p id="email-err">Email required</p>
+              
+
               <button id = "btn-register">Get Started!</button>
             </form>
+            <div class="alert alert-danger errors"  id="email-err" role="alert">
+                E-mail required.
+              </div>
           </div>
     </div>
 
@@ -75,12 +79,23 @@
 
                  <input type="image" id ="btn-add" src="images/add.png">
                  <div class="date-container">
-                    <p>Close the poll at: </p>
-                    <input type="text" class="date-picker">
+                   
+                  
+                  <p><img src="/images/calendar.png" alt="">  <input class="date-picker" placeholder="Set poll end date [Required]" ></p> 
+                    
                     <button class="btn btn-outline-success" id="btn-publish">Publish</button>
                  </div>
-                 <h4 id="empty-input-err"></h4>
+                 
+                 <div class="alert alert-danger errors"  id="empty-input-err" role="alert">
+                    
+                  </div>
               </form>
+
+              <div class="poll-submitted hidden">
+                  <h3>Poll succesfully created</h3>
+                  <p>Share this link with your pack: <span><input id="share-url-input" readonly='readonly'></span><span id ="copied-badge"class="badge badge-pill badge-success hidden">Copied!</span><span><button class="btn btn-outline-success" id="copy-btn"> <img src="/images/clipboard.png" alt=""> Copy URL</button></span></p>
+                  <p>An email has also been sent to <span id="creator-email"></span> with the link above and a link to view the current results.</p>
+                </div>
             </div>
             <div class = "col-lg-2 publish-area debug">
               <div class = "col-lg-2 publish-area debug"></div>
@@ -88,11 +103,7 @@
           </div>
         </div>
 
-        <div class="container-fluid" id="poll-submitted">
-          <h3>Poll succesfully created</h3>
-          <p>Share this link with your friends: <span><input id="share-url-input" readonly='readonly'></span><span><button id="copy-btn">Copy URL</button></span></p>
-          <p>An email has also been sent to <span id="creator-email"></span> with the link above and a link to view the current results.</p>
-        </div>
+
 
   </body>
 </html>
