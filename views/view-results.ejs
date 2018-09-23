@@ -43,7 +43,7 @@
          <%for(let i = 0; i < results.length; i++){%>
           <%let maxPoint = Object.keys(results[0].results).length;%>
 
-          <%for(let j = 0; j < maxPoint+2; j++) {%>
+          <%for(let j = 0; j < Object.keys(results[0].results).length; j++) {%>
            <% if(results[i].results[j] in points ) %>
            <% { %>
             <%  points[results[i].results[j]] += maxPoint--; %>
@@ -51,16 +51,18 @@
       <%  } %>
       <% } %>
       <% let maxVote = 0%>
+      <% let maxVoteOption = "" %>
         <div id="total-votes">
             <p> <span><%= results.length %> </span> vote(s) have been recorded %></p>
         </div >
         <%for(var x in points) { %>
 
           <% if(points[x] > maxVote){ %>
-           <% maxVote = x%>
+            <% maxVote =points[x] %>
+           <% maxVoteOption = x%>
           <% } %>
        <% } %>
-       <p id = "current-lead-p">Current lead: <span id ="current-lead"><%= maxVote %></span></p>
+       <p id = "current-lead-p">Current lead: <span id ="current-lead"><%= maxVoteOption %></span></p> 
         <span id="question"><%=results[0].poll_name%></span>
 
             <% let counter = 0 %>
