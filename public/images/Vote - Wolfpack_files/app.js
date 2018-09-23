@@ -139,7 +139,6 @@ $(document).ready(function () {
         console.log(shareURL);
       });
     }
-  
   });
 
   // Copy url to clipboard
@@ -154,9 +153,7 @@ $(document).ready(function () {
 
 
   // Vote submit button
-  $('#submit-vote-btn').on('click', function(e) {
-    $("#user-vote-poll-container").hide();
-    $(".vote-success").show();
+  $('#submit-vote-btn').on('click', function() {
     console.log('vote button submission');
     const pathName = window.location.pathname;
     const listElements = $('#sortable').children();
@@ -181,7 +178,8 @@ $(document).ready(function () {
       console.log('vote submission completed');
     });
   });
-
+  $("#user-vote-poll-container").hide();
+  $(".vote-success").show();
 });
 
 

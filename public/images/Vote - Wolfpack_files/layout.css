@@ -1,0 +1,371 @@
+.row {
+  width: 100vw;
+}
+
+.input-group-text {
+  border-right: none;
+  height: auto;
+  border-color: transparent;
+  border-radius: 0px;
+}
+
+.container-custom {
+  margin: 0;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+}
+
+.container-custom .left-index {
+  display: flex;
+  width: 50%;
+  background-color: #0e2380;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container-custom .left-index #logo {
+  margin-top: 12px;
+  margin-left: 12px;
+}
+
+.container-custom .left-index .features-box {
+  display: flex;
+  width: 600px;
+  height: 200px;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-between;
+}
+
+.container-custom .left-index .features-box img {
+  width: 64px;
+  height: 64px;
+}
+
+.container-custom .left-index .features-box p {
+  font-size: 26px;
+  color: white;
+  font-weight: bold;
+  align-self: baseline;
+}
+
+.container-custom .left-index .features-box .f-create-poll {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  justify-content: space-between;
+}
+
+.container-custom .left-index .features-box .f-create-poll img {
+  margin-top: 10px;
+}
+
+.container-custom .left-index .features-box .f-invite-friends {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  justify-content: space-between;
+}
+
+.container-custom .left-index .features-box .f-invite-friends img {
+  margin-top: 10px;
+}
+
+.container-custom .right-index {
+  display: flex;
+  width: 50%;
+  background-color: white;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #0e2380;
+}
+
+.container-custom .right-index #logo-name {
+  font-family: "Poor Story", cursive;
+  font-size: 40px;
+}
+
+.container-custom .right-index #login-form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: space-between;
+  border: 1px solid rgba(14, 35, 128, 0.2);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.container-custom .right-index #login-form #email {
+  height: 25px;
+  border-radius: 10px;
+}
+
+.container-custom .right-index #login-form button {
+  width: 50%;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.container-custom .right-index #login-form #btn-register {
+  color: white;
+  background: #0e2380;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.nav-bar-custom {
+  width: 100%;
+  color: white;
+  background-color: #0e2380;
+  font-family: "Poor Story", cursive;
+  font-size: 40px;
+}
+
+.poll-area {
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.poll-area form {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.poll-area form #btn-add {
+  width: 32px;
+  height: 32px;
+  align-self: center;
+}
+
+.poll-area p {
+  font-size: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.poll-area #pollName {
+  white-space: normal;
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-size: 25px;
+  width: 980px;
+  border-color: #0e2380;
+  border-radius: 10px;
+  resize: none;
+  height: 50px;
+}
+
+.poll-area .date-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 974px;
+}
+
+.poll-area .date-container p {
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+}
+
+.poll-area .date-container p input {
+  margin-left: 5%;
+}
+
+.poll-area .date-container img {
+  width: 32px;
+  height: 32px;
+}
+
+.poll-area .date-container #btn-publish {
+  border-color: transparent;
+}
+
+.poll-area .date-picker {
+  display: flex;
+  border: 0px solid;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.poll-area .option-remove-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.poll-area .option-remove-wrapper input[type="image"] {
+  margin-left: 5px;
+  width: 32px;
+  height: 41px;
+  padding-top: 9px;
+}
+
+.poll-area .option-remove-wrapper input[type="text"] {
+  border-style: solid;
+  border-color: #e9ecef;
+  white-space: normal;
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-size: 25px;
+  width: 811px;
+  resize: none;
+  height: 50px;
+  border-left: none;
+  border-top-right-radius: 10px;
+}
+
+.poll-area .option-remove-wrapper #link-add-desc {
+  border: 0;
+  background-color: transparent;
+}
+
+.poll-area .option-remove-wrapper #btn-remove {
+  align-self: flex-end;
+}
+
+.poll-area .option-remove-wrapper .description-box {
+  display: none;
+  border-top: none;
+  border-color: grey;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 990px;
+  height: 100px;
+  resize: none;
+}
+
+.publish-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.debug {
+  border-color: red;
+}
+
+.hidden {
+  display: hidden;
+}
+
+#user-vote-poll-container {
+  display: flex;
+  height: 80vh;
+  font-family: "Nunito", sans-serif;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-vote-poll-container h1 {
+  font-size: 45px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#user-vote-poll-container #sortable {
+  display: flex;
+  height: 70%;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+}
+
+#user-vote-poll-container #sortable li {
+  text-align: center;
+  width: 898px;
+  border: 1px solid lightgrey;
+}
+
+#email-err {
+  margin-top: 10px;
+  display: none;
+}
+
+.poll-submitted {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  height: 60vh;
+}
+
+.poll-submitted h3 {
+  color: green;
+}
+
+.poll-submitted #share-url-input {
+  border-style: dashed;
+  width: 100%;
+  text-align: center;
+}
+
+.poll-submitted #creator-email {
+  border-bottom: 1px solid black;
+}
+
+#poll-page-container {
+  display: none;
+}
+
+.result-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-area #total-votes {
+  font-family: "Nunito", sans-serif;
+  font-size: 45px;
+}
+
+.result-area #total-votes span {
+  color: red;
+}
+
+.dataToProcess {
+  display: flex;
+  flex-direction: row;
+}
+
+#current-lead {
+  font-family: "Nunito", sans-serif;
+  color: #0e2380;
+  font-size: 40px;
+  font-weight: bold;
+  border: 1px #0e2380 solid;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#current-lead-p {
+  font-size: 35px;
+}
+
+#question {
+  width: 0px;
+  height: 0px;
+}
+
+.hidden {
+  display: none;
+}
