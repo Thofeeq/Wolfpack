@@ -31,7 +31,7 @@ $(document).ready(function() {
     },
     data: [
     {
-      type: "column",
+      type: "pie",
 			startAngle: 45,
 			showInLegend: "true",
 			legendText: "{label}",
