@@ -23,7 +23,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 nav-bar-custom">
-        <img src="/images/werewolf.png" alt="">
+        <img src="/images/werewolf.png" href="#"   alt="">
         <p class ="logo">WOLFPACK</p>
       </div>
     </div>
@@ -33,32 +33,48 @@
 
       </div>
 
-      <div class = "col-lg-8">
-        <p><%= results.length %> votes have been recorded %></p>
-        <p id="question"><%=results[0].poll_name%></p>
-        <% let points = {} %>
+      <div class = "col-lg-8 result-area">
+          <% let points = {} %>
 
-        <%for(let i = 0; i < Object.keys(results[0].results).length; i++){%>
-         <% points[results[0].results[i]] = 0; %>
-       <% } %>
-
-       <%for(let i = 0; i < results.length; i++){%>
-        <%let maxPoint = Object.keys(results[0].results).length;%>
-
-        <%for(let j = 0; j <= maxPoint+2; j++) {%>
-         <% if(results[i].results[j] in points ) %>
-         <% { %>
-          <%  points[results[i].results[j]] += maxPoint--; %>
+          <%for(let i = 0; i < Object.keys(results[0].results).length; i++){%>
+           <% points[results[0].results[i]] = 0; %>
          <% } %>
-    <%  } %>
-    <% } %>
+
+         <%for(let i = 0; i < results.length; i++){%>
+          <%let maxPoint = Object.keys(results[0].results).length;%>
+
+          <%for(let j = 0; j <= maxPoint+2; j++) {%>
+           <% if(results[i].results[j] in points ) %>
+           <% { %>
+            <%  points[results[i].results[j]] += maxPoint--; %>
+           <% } %>
+      <%  } %>
+      <% } %>
+      <% let maxVote = 0%>
+        <div id="total-votes">
+            <p> <span><%= results.length %> </span> votes have been recorded %></p>
+        </div >
+        <%for(var x in points) { %>
+
+          <% if(points[x] > maxVote){ %>
+           <% maxVote = x%>
+          <% } %>
+       <% } %>
+       <p id = "current-lead-p">Current lead: <span id ="current-lead"><%= maxVote %></span></p>
+        <!-- <p id="question"><%=results[0].poll_name%></p> -->
+
             <% let counter = 0 %>
+
          <%for(var x in points) { %>
 
+         <% if(points[x] > maxVote){ %>
+          <% maxVote = x%>
+         <% } %>
+
               <div class = "dataToProcess">
-                  <p class = "result-options" id = a<%=counter%>><%=x%> </p>
-                  <p>----></p>
-                  <p class ="label" id=<%=counter%> >  <%=points[x]%></p>
+                  <p class = "result-options hidden" id = a<%=counter%>><%=x%> </p>
+
+                  <p class ="label hidden" id=<%=counter%> > <%=points[x]%></p>
 
               </div>
 
@@ -66,6 +82,7 @@
           <% } %>
 
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
       </div>
 
       <div class = "col-lg-2">

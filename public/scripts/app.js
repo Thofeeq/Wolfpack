@@ -126,7 +126,7 @@ $(document).ready(function () {
       }).done((results) => {
         console.log('Poll succesfully submitted.');
         $('#form-publish').slideUp();
-        $('#poll-submitted').show();
+        $('.poll-submitted').show();
         const shareURL = results.shareURL;
         $('#share-url-input').val(`localhost:8080/poll/${shareURL}`);
         $('#creator-email').text(email);
