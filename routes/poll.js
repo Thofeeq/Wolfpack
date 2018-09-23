@@ -18,7 +18,6 @@ module.exports = (knex) => {
     .where({'polls.vote_url' : urlToVote})
     .then((results) => {
       console.log(results);
-      console.log(results[0]);
       res.render("user-vote", results[0]);
     });
   });
@@ -50,8 +49,6 @@ module.exports = (knex) => {
           results:votes
         })
         .then(()=>{
-
-          const mailgun = require('mailgun-js')({apiKey:process.env.apiKey, domain:process.env.mailDomain});
           const dataAdmin = {
             from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
             to:email,
@@ -78,7 +75,7 @@ module.exports = (knex) => {
     const createdDate = moment();
     const expiredDate = req.body.date;
     console.log(moment(expiredDate));
-    //console.log(moment().isAfter(expiredDate));
+
     let choices = {};
     for (let i in req.body.choices) {
       choices[req.body.choices[i]] = req.body.desc[i];

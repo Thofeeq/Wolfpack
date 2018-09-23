@@ -294,8 +294,6 @@ $login-right-bg: white;
 
 
   display:flex;
-  height: 80vh;
-  border: 1px red solid;
   font-family: $app-font;
   flex-direction: column;
   align-items: center;
@@ -313,7 +311,17 @@ $login-right-bg: white;
      margin: 0;
       padding: 0;
       justify-content: space-around }
-  #sortable li { text-align: center;width:898px; border: 1px solid lightgrey;}
+  #sortable li {
+    text-align: center;
+    width:600px;
+    border-radius: 5px;
+    border: 3px solid rgb(14, 35, 128);
+    background-color: rgb(233, 233, 233);
+    margin: 10px 0px;
+  }
+  #submit-vote-btn {
+    margin: 10px 0 40px 0;
+  }
 
 }
 
@@ -331,4 +339,8 @@ $login-right-bg: white;
 .dataToProcess{
   display:flex;
   flex-direction: row;
+}
+
+#share-url-input {
+  width: 400px;
 }

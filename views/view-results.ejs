@@ -30,21 +30,21 @@
 
     <div class="row">
       <div class="col-lg-2">
-        
+
       </div>
 
       <div class = "col-lg-8">
         <p><%= results.length %> votes have been recorded %></p>
         <p id="question"><%=results[0].poll_name%></p>
         <% let points = {} %>
-                  
+
         <%for(let i = 0; i < Object.keys(results[0].results).length; i++){%>
          <% points[results[0].results[i]] = 0; %>
        <% } %>
 
        <%for(let i = 0; i < results.length; i++){%>
         <%let maxPoint = Object.keys(results[0].results).length;%>
-        
+
         <%for(let j = 0; j <= maxPoint+2; j++) {%>
          <% if(results[i].results[j] in points ) %>
          <% { %>
@@ -54,12 +54,12 @@
     <% } %>
             <% let counter = 0 %>
          <%for(var x in points) { %>
-            
+
               <div class = "dataToProcess">
                   <p class = "result-options" id = a<%=counter%>><%=x%> </p>
                   <p>----></p>
                   <p class ="label" id=<%=counter%> >  <%=points[x]%></p>
-                 
+
               </div>
 
               <%counter++%>
