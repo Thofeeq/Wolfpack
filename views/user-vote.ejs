@@ -34,6 +34,13 @@
          </div>
 
          <div class = "col-lg-8">
+          <div id="voter-name-input">
+            <h3>Enter your name:</h3>
+            <input id="voter-name" type="text">
+            <button class="btn btn-outline-success name-submit-btn">Submit</button>
+            <div class="alert alert-danger" id="voter-name-err">Name is required</div>
+          </div>
+
             <div id="user-vote-poll-container">
                 <h1><%= poll_name%></h1>
                 <p>Drag and drop the options to vote for your favorites.</p>
