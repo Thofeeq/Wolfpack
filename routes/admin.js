@@ -13,11 +13,12 @@ module.exports = (knex) => {
     .join("polls",{"polls.poll_id" : "votes.poll_id"})
     .where({'votes.poll_id' : pollId})
     .then((results) => {
-       let templateVar = {results}
-       console.log(templateVar);
-       
-       console.dir(results[0]);
-      res.render("view-results", templateVar);
+      if (results.length === 0) {
+        res.render('poll-error');
+      } else {
+        let templateVar = {results}
+        res.render("view-results", templateVar);
+      }
     });
   });
 

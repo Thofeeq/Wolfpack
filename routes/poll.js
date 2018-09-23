@@ -17,8 +17,11 @@ module.exports = (knex) => {
     .from("polls")
     .where({'polls.vote_url' : urlToVote})
     .then((results) => {
-      console.log(results);
-      res.render("user-vote", results[0]);
+      if (results.length === 0) {
+        res.render('poll-error');
+      } else {
+        res.render("user-vote", results[0]);
+      }
     });
   });
 
