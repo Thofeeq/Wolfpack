@@ -149,7 +149,6 @@ $login-right-bg: white;
 
 
   form{
-    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -194,14 +193,15 @@ $login-right-bg: white;
       display:flex;
       flex-direction: row;
       font-size: 1rem;
-     
+
       input {
         margin-left:5%;
+        width: 250px;
       }
     }
     img{
       width:32px;
-      height:32px;  
+      height:32px;
     }
     #btn-publish{
       margin-top: 20px;
@@ -210,7 +210,7 @@ $login-right-bg: white;
   .date-picker{
     display:flex;
     text-align: center;
-    border: 0px solid;
+    border: 1px solid rgb(233, 233, 233);
     margin-top:10px;
     border-radius:10px;
 
@@ -296,7 +296,7 @@ $login-right-bg: white;
 
 
   display:flex;
-  height: 80vh;
+  // height: 80vh;
 
   font-family: $app-font;
   flex-direction: column;
@@ -318,7 +318,7 @@ $login-right-bg: white;
   #sortable li {
     text-align: center;
     width:600px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 3px solid rgb(14, 35, 128);
     background-color: rgb(233, 233, 233);
     margin: 10px 0px;
@@ -332,7 +332,7 @@ $login-right-bg: white;
 #email-err {
   margin-top:10px;
   display: none;
-  
+
 }
 
 
@@ -341,7 +341,7 @@ $login-right-bg: white;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  height:60vh; 
+  height:60vh;
 
   h3{
     color:green;
