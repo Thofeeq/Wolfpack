@@ -30,19 +30,19 @@
 
     <div class="row">
       <div class="col-lg-2">
-        
+
       </div>
 
       <div class = "col-lg-8 result-area">
           <% let points = {} %>
-                  
+
           <%for(let i = 0; i < Object.keys(results[0].results).length; i++){%>
            <% points[results[0].results[i]] = 0; %>
          <% } %>
-  
+
          <%for(let i = 0; i < results.length; i++){%>
           <%let maxPoint = Object.keys(results[0].results).length;%>
-          
+
           <%for(let j = 0; j <= maxPoint+2; j++) {%>
            <% if(results[i].results[j] in points ) %>
            <% { %>
@@ -55,34 +55,34 @@
             <p> <span><%= results.length %> </span> vote(s) have been recorded %></p>
         </div >
         <%for(var x in points) { %>
-            
+
           <% if(points[x] > maxVote){ %>
            <% maxVote = x%>
           <% } %>
        <% } %>
-       <p id = "current-lead-p">Current lead: <span id ="current-lead"><%= maxVote %></span></p> 
+       <p id = "current-lead-p">Current lead: <span id ="current-lead"><%= maxVote %></span></p>
         <!-- <p id="question"><%=results[0].poll_name%></p> -->
 
             <% let counter = 0 %>
-          
+
          <%for(var x in points) { %>
-            
+
          <% if(points[x] > maxVote){ %>
           <% maxVote = x%>
          <% } %>
 
               <div class = "dataToProcess">
                   <p class = "result-options hidden" id = a<%=counter%>><%=x%> </p>
-                
+
                   <p class ="label hidden" id=<%=counter%> > <%=points[x]%></p>
-                 
+
               </div>
 
               <%counter++%>
           <% } %>
 
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-         
+
       </div>
 
       <div class = "col-lg-2">
