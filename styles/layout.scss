@@ -186,15 +186,15 @@ $login-right-bg: white;
   .date-container{
     margin-top:40px;
     text-align: center;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content:space-between;
-    // width:974px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width:974px;
     p{
       display:flex;
       flex-direction: row;
       font-size: 1rem;
-
+     
       input {
         margin-left:5%;
       }
@@ -210,23 +210,9 @@ $login-right-bg: white;
   .date-picker{
     display:flex;
     text-align: center;
-    // margin-left:50%-19%;
-    // align-self:center;
-    // background-image: url("/images/calendar.png");
-    // background-repeat: no-repeat;
-    // background-size:32px;
-    // background-position-x:64px;
-<<<<<<< HEAD
     border: 0px solid;
     margin-top:10px;
-=======
-    border: 1px solid rgb(233, 233, 233);
-    margin: 0 auto;
-    width:350px;
-
->>>>>>> f477b9309e15c3a241c71fec5c9dac985f229154
     border-radius:10px;
-
 
   }
 
@@ -310,11 +296,8 @@ $login-right-bg: white;
 
 
   display:flex;
-<<<<<<< HEAD
   height: 80vh;
 
-=======
->>>>>>> f477b9309e15c3a241c71fec5c9dac985f229154
   font-family: $app-font;
   flex-direction: column;
   align-items: center;
@@ -352,7 +335,7 @@ $login-right-bg: white;
   
 }
 
-<<<<<<< HEAD
+
 .poll-submitted {
   display: flex;
   flex-direction: column;
@@ -365,7 +348,6 @@ $login-right-bg: white;
   }
   #share-url-input{
     border-style: dashed;
- 
     width:100%;
     text-align: center;
   }
@@ -375,8 +357,6 @@ $login-right-bg: white;
   }
 }
 
-=======
->>>>>>> f477b9309e15c3a241c71fec5c9dac985f229154
 #poll-page-container {
   display: none;
 }
@@ -401,7 +381,6 @@ $login-right-bg: white;
   display:flex;
   flex-direction: row;
 }
-<<<<<<< HEAD
 #current-lead{
   font-family: $app-font;
   color:$primary-color;
@@ -427,9 +406,3 @@ $login-right-bg: white;
 #vote-success{
   display: hidden;
 }
-=======
-
-#share-url-input {
-  width: 400px;
-}
->>>>>>> f477b9309e15c3a241c71fec5c9dac985f229154
