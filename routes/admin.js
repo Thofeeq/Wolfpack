@@ -14,6 +14,8 @@ module.exports = (knex) => {
     .where({'votes.poll_id' : pollId})
     .then((results) => {
        let templateVar = {results}
+       console.log(templateVar);
+       
        console.dir(results[0]);
       res.render("view-results", templateVar);
     });

@@ -15,6 +15,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 <body>
@@ -33,6 +34,7 @@
 
       <div class = "col-lg-8">
         <p><%= results.length %> votes have been recorded %></p>
+        <p id="question"><%=results[0].poll_name%></p>
         <% let points = {} %>
                   
         <%for(let i = 0; i < Object.keys(results[0].results).length; i++){%>
@@ -52,8 +54,17 @@
             <% let counter = 0 %>
          <%for(var x in points) { %>
             
-              <p><%=x%>   <%=points[x]%></p>
+              <div class = "dataToProcess">
+                  <p class = "result-options" id = a<%=counter%>><%=x%> </p>
+                  <p>----></p>
+                  <p class ="label" id=<%=counter%> >  <%=points[x]%></p>
+                 
+              </div>
+
+              <%counter++%>
           <% } %>
+
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
       </div>
 
       <div class = "col-lg-2">
