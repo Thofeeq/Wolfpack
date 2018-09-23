@@ -52,8 +52,8 @@ module.exports = (knex) => {
           const dataAdmin = {
             from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
             to:email,
-            subject: `WolfPack ${userName} voted on ${pollTitle}` ,
-            text:`See Results   http://localhost:8080/admin/${pollId}`
+            subject: `${userName} has voted on your poll: ${pollTitle}!` ,
+            text:`A new vote has been cast on you ${pollTitle} poll.\n You can see the current results here: http://localhost:8080/admin/${pollId} \n\n Wolfpack`
           };
           mailgun.messages().send(dataAdmin, function (error, body){
             console.log(body);
@@ -85,8 +85,8 @@ module.exports = (knex) => {
     const dataAdmin = {
       from: 'WOLFPACK <postmaster@sandboxd56fc5940f144690b23198bcbaa6ebe5.mailgun.org>',
       to:email,
-      subject: `WolfPack Poll Admin Link ${pollTitle}` ,
-      text:`adminlink   http://localhost:8080/admin/${id} votelink  http://localhost:8080/poll/${voteURL}`
+      subject: `WolfPack Poll created: ${pollTitle}` ,
+      text:`Your poll has been succesfully created: ${pollTitle}\n\n Use the admin link to view the results, and send the voting link with your friends!\n Admin link: http://localhost:8080/admin/${id}\n Voting Link: http://localhost:8080/poll/${voteURL} \n\n Wolfpack`
     };
     mailgun.messages().send(dataAdmin, function (error, body){
       console.log(body);

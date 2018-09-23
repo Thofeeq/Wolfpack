@@ -62,7 +62,7 @@
            <% maxVoteOption = x%>
           <% } %>
        <% } %>
-       <p id = "current-lead-p">Current lead: <span id ="current-lead"><%= maxVoteOption %></span></p> 
+       <p id = "current-lead-p">Current lead: <span id ="current-lead"><%= maxVoteOption %></span></p>
         <span id="question"><%=results[0].poll_name%></span>
 
             <% let counter = 0 %>
@@ -84,6 +84,7 @@
           <% } %>
 
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+          <p id="small-footer">Result points calculated using the <a href ="https://en.wikipedia.org/wiki/Borda_count">Borda Count</a> method</p>
 
       </div>
 
