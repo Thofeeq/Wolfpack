@@ -75,7 +75,7 @@ $(document).ready(function () {
       inputErr.slideDown();
       $("#pollName").css("border-color","red");
     } else if (($('#req-choice-1').val() === '') || ($('#req-choice-2').val() === '')) {
-      inputErr.text('You must fill out the first 2 required options');   
+      inputErr.text('You must fill out the first 2 required options');
       inputErr.slideDown();
       $("#pollName").css("border-color","lightgray");
       $("#option-container input").css("border-color","red");
@@ -117,7 +117,7 @@ $(document).ready(function () {
         console.log(shareURL);
       });
     }
-  
+
   });
 
   // Copy url to clipboard

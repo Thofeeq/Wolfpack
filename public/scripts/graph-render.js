@@ -20,7 +20,7 @@ $(document).ready(function() {
     },
     data: [
     {
-      type: "doughnut",
+      type: "pie",
 			startAngle: 45,
 			showInLegend: "true",
 			legendText: "{label}",
