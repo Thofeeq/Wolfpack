@@ -117,6 +117,7 @@ $login-right-bg: white;
           color:white;
           background:$primary-color;
           height:50px;
+          margin-top:10px;
         }
       }
     }
@@ -125,9 +126,6 @@ $login-right-bg: white;
   }
 
 
-.hidden{
-  display: none;
-}
 
 .nav-bar-custom{
 
@@ -188,14 +186,23 @@ $login-right-bg: white;
   .date-container{
     margin-top:40px;
     text-align: center;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content:space-between;
-    // width:974px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width:974px;
     p{
+      display:flex;
+      flex-direction: row;
       font-size: 1rem;
+     
+      input {
+        margin-left:5%;
+      }
     }
-
+    img{
+      width:32px;
+      height:32px;  
+    }
     #btn-publish{
       margin-top: 20px;
     }
@@ -203,17 +210,10 @@ $login-right-bg: white;
   .date-picker{
     display:flex;
     text-align: center;
-    // margin-left:50%-19%;
-    // align-self:center;
-    // background-image: url("/images/calendar.png");
-    // background-repeat: no-repeat;
-    // background-size:32px;
-    // background-position-x:64px;
-    border: 1px solid rgb(233, 233, 233);
-    margin: 0 auto;
-    width:350px;
-
+    border: 0px solid;
+    margin-top:10px;
     border-radius:10px;
+
   }
 
   .option-remove-wrapper{
@@ -281,9 +281,9 @@ $login-right-bg: white;
   justify-content: center;
   align-items: center;
 }
-// .debug{
-//   border: 3px red solid;
-// }
+.debug{
+  border-color:red;
+}
 
 .hidden{
   display:hidden;
@@ -296,6 +296,8 @@ $login-right-bg: white;
 
 
   display:flex;
+  height: 80vh;
+
   font-family: $app-font;
   flex-direction: column;
   align-items: center;
@@ -328,17 +330,79 @@ $login-right-bg: white;
 }
 
 #email-err {
+  margin-top:10px;
   display: none;
+  
+}
+
+
+.poll-submitted {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  height:60vh; 
+
+  h3{
+    color:green;
+  }
+  #share-url-input{
+    border-style: dashed;
+    width:100%;
+    text-align: center;
+  }
+
+  #creator-email{
+    border-bottom:1px solid black;
+  }
 }
 
 #poll-page-container {
   display: none;
 }
+
+.result-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  #total-votes{
+    font-family: $app-font;
+    font-size: 45px;
+
+    span {
+      color:red;
+    }
+  }
+
+}
 .dataToProcess{
   display:flex;
   flex-direction: row;
 }
+#current-lead{
+  font-family: $app-font;
+  color:$primary-color;
+  font-size: 40px;
+  font-weight: bold;
+  border: 1px $primary-color solid;
+  border-radius: 10px;
+  padding:5px;
+}
+#current-lead-p{
+  font-size: 35px;
+}
 
-#share-url-input {
-  width: 400px;
+#question {
+  width:0px;
+  height:0px;
+}
+
+.hidden{
+  display: none;
+}
+
+#vote-success{
+  display: hidden;
 }
