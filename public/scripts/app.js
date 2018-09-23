@@ -15,9 +15,11 @@ $(document).ready(function () {
     }
   });
 
-  $(".date-picker").flatpickr({enableTime:true});
+  $(".date-picker").flatpickr({
+    enableTime: true,
+    minDate: Date.now()
+  });
   $(".date-picker").on("click",function(){
-
     $(this).css("background-image","none");
   });
 
@@ -140,39 +142,50 @@ $(document).ready(function () {
     const question = $('#pollName').val();
     const date = $('.date-picker').val();
 
+    // Check for empty inputs
+    const inputErr = $('#empty-input-err');
+    inputErr.hide();
+    if (question === '') {
+      inputErr.text('You must input a question');
+      inputErr.slideDown();
+    } else if (($('#req-choice-1').val() === '') || ($('#req-choice-2').val() === '')) {
+      inputErr.text('You must fill out the first 2 required options');
+      inputErr.slideDown();
+    } else if (date === '') {
+      inputErr.text('You must select a date');
+      inputErr.slideDown();
+    } else {
+      // Everything is filled out, proceed
+      let choices = [];
+      $('.choices').each(function() {
+        choices.push($(this).val());
+      });
+      let descs = [];
+      $('.description-box').each(function() {
+        descs.push($(this).val());
+      });
+      let options = {
+        email: email,
+        pollTitle: question,
+        date: date,
+        choices: choices,
+        desc: descs
+      };
 
-    let choices = [];
-    $('.choices').each(function() {
-      choices.push($(this).val());
-    });
-    let descs = [];
-    $('.description-box').each(function() {
-      descs.push($(this).val());
-    });
-    // for (let i in choices) {
-    //   options[i] = choices[i];
-    // }
-    let options = {
-      email: email,
-      pollTitle: question,
-      date: date,
-      choices: choices,
-      desc: descs
-    };
-
-    $.ajax({
-      method: 'POST',
-      url: '/poll/new',
-      data: options,
-    }).done((results) => {
-      console.log('Poll succesfully submitted.');
-      $('#form-publish').slideUp();
-      $('#poll-submitted').show();
-      const shareURL = results.shareURL;
-      $('#share-url-input').val(`localhost:8080/${shareURL}`);
-      $('#creator-email').text(email);
-      console.log(shareURL);
-    });
+      $.ajax({
+        method: 'POST',
+        url: '/poll/new',
+        data: options,
+      }).done((results) => {
+        console.log('Poll succesfully submitted.');
+        $('#form-publish').slideUp();
+        $('#poll-submitted').show();
+        const shareURL = results.shareURL;
+        $('#share-url-input').val(`localhost:8080/${shareURL}`);
+        $('#creator-email').text(email);
+        console.log(shareURL);
+      });
+    }
   });
 
   // Copy url to clipboard
