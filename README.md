@@ -1,29 +1,38 @@
-# Node Skeleton
+# Wolfpack
 
-## Project Setup
+#### Wolfpack is web app for creating polls and sharing them with your friends.
+After a user enters their email address, they can make a poll with as many options as they'd like (minimum 2) and select when they would like the poll to end. After creating the poll, they are given a URL to share with their friends, and will receive an email with that shareable URL and an administrative link where they can see the up to date results of the poll. When someone votes on the poll, the user is notified via email that a vote has been cast, which includes the voters name, and the admin link again so they can view the current results.
 
-1. Create your own empty repo on GitHub
-2. Clone this repository (do not fork)
-  - Suggestion: When cloning, specify a different folder name that is relevant to your project
-3. Remove the git remote: `git remote rm origin`
-4. Add a remote for your origin: `git remote add origin <your github repo URL>`
-5. Push to the new origin: `git push -u origin master`
-6. Verify that the skeleton code now shows up in your repo on GitHub
 
-## Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information
-3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
-5. Run migrations: `npm run knex migrate:latest`
-  - Check the migrations folder to see what gets created in the DB
-6. Run the seed: `npm run knex seed:run`
-  - Check the seeds file to see what gets seeded in the DB
-7. Run the server: `npm run local`
-8. Visit `http://localhost:8080/`
+
+## Setup
+- Clone the repo and run `npm install` to download all the dependencies
+- Configure your .env file with the following information:
+```
+DB_HOST=localhost
+DB_USER=<USERNAME>
+DB_PASS=<PASSWORD>
+DB_NAME=<DBNAME>
+DB_SSL=true if heroku
+DB_PORT=5432
+
+apiKey=<YOUR MAILGUN API KEY>
+mailDomain=<YOUR MAILGUN DOMAIN>
+```
+- Run `npm start` to start the server and navigate to localhost:8080
+
 
 ## Dependencies
 
-- Node 5.10.x or above
-- NPM 3.8.x or above
+- Express
+- EJS
+- pg
+- knex
+- morgan
+- body-parser
+- mailgunjs
+- moment
+- dotenv
+- flatpickr
+- gfycat-style-urls
