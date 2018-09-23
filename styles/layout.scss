@@ -187,29 +187,31 @@ $login-right-bg: white;
 
   .date-container{
     margin-top:40px;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    width:974px;
+    text-align: center;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content:space-between;
+    // width:974px;
     p{
       font-size: 1rem;
     }
 
     #btn-publish{
-      border-color:transparent;
+      margin-top: 20px;
     }
   }
   .date-picker{
     display:flex;
+    text-align: center;
     // margin-left:50%-19%;
     // align-self:center;
-    background-image: url("/images/calendar.png");
-    background-repeat: no-repeat;
-    background-size:32px;
-    background-position-x:64px;
-    border: 0px solid;
-    margin-top:10px;
-    width:19%;
+    // background-image: url("/images/calendar.png");
+    // background-repeat: no-repeat;
+    // background-size:32px;
+    // background-position-x:64px;
+    border: 1px solid rgb(233, 233, 233);
+    margin: 0 auto;
+    width:350px;
 
     border-radius:10px;
   }
