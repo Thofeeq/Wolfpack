@@ -43,7 +43,7 @@
          <%for(let i = 0; i < results.length; i++){%>
           <%let maxPoint = Object.keys(results[0].results).length;%>
 
-          <%for(let j = 0; j <= maxPoint+2; j++) {%>
+          <%for(let j = 0; j < maxPoint+2; j++) {%>
            <% if(results[i].results[j] in points ) %>
            <% { %>
             <%  points[results[i].results[j]] += maxPoint--; %>
