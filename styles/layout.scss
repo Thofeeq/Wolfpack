@@ -403,8 +403,12 @@ $login-right-bg: white;
   display: none;
 }
 
-#vote-success{
+.vote-success{
   display: hidden;
+  margin-top: 20px;
+  text-align: center;
+  font-family: $app-font;
+  font-size: 1.5rem;
 }
 
 #voter-name-input {
