@@ -51,7 +51,7 @@ $(document).ready(function () {
 
       $("#option-container").append('<div class ="option-remove-wrapper">\
       <div class="input-group-text link-add-desc"> <a href="">+ optional description</a></div>\
-        <input type="text" id = "req-choice-1" class="choices" name="c1">\
+        <input type="text" class="choices" name="c1">\
         <input type="image" src="/images/remove.png" class ="btn-remove-custom" alt="remove">\
         <textarea class ="description-box" placeholder="Description" rows="2"></textarea>\
       </div>');
