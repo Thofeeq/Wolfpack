@@ -154,6 +154,7 @@ $login-right-bg: white;
     justify-content: flex-start;
 
       #btn-add{
+        cursor: pointer;
         width:32px;
         height:32px;
         align-self: center;
@@ -430,4 +431,18 @@ $login-right-bg: white;
   font-family: $app-font;
   text-align: center;
   font-size: 1.5rem;
+}
+
+#btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#btn-remove {
+  cursor: pointer;
+  width:32px;
+  height: 32px;
+  border: none;
+  margin-left: 15px;
 }

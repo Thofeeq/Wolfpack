@@ -24,10 +24,12 @@ $(document).ready(function () {
     $(this).css("background-image","none");
   });
 
-//q for mentor
-  $("body").on("click",".btn-remove-custom", function(e){
-    e.preventDefault();
-    $(this).parent().remove();
+
+  $('#btn-remove').on('click', function() {
+    const lastChild = $('.choices').last();
+    if (lastChild[0].id !== 'req-choice-2') {
+      lastChild.parent().remove();
+    }
   });
 
   $("body").on("click",".link-add-desc" ,function(e){
@@ -52,7 +54,6 @@ $(document).ready(function () {
       $("#option-container").append('<div class ="option-remove-wrapper">\
       <div class="input-group-text link-add-desc"> <a href="">+ optional description</a></div>\
         <input type="text" id = "req-choice-1" class="choices" name="c1">\
-        <input type="image" src="/images/remove.png" class ="btn-remove-custom" alt="remove">\
         <textarea class ="description-box" placeholder="Description" rows="2"></textarea>\
       </div>');
     }
